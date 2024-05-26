@@ -21,6 +21,16 @@ preguntas_agente_fifa = [
         'respuestas_correctas': ['Representación de Clientes ante el Tribunal de Fútbol de la FIFA','Negociar un acuerdo de patrocinio comercial para un jugador']  
     },
     {
+        'pregunta': 'Jimmy firma un acuerdo de representación de un año con un agente de fútbol llamado Jo. Poco después, Jimmy recibe una llamada de un club extranjero llamado FC Stockton, que le hace una oferta para que firme con ellos y se convierta en su delantero del primer equipo. Contento con la oferta, Jimmy le pide a Jo que negocie un contrato para él con el FC Stockton. Después de unos días de negociaciones facilitadas por Jo, Jimmy firma un contrato de seis meses con el club. Al final del contrato de Jimmy, el presidente del club firma directamente con Jimmy una extensión de seis meses. Jo está decepcionado con el giro de los acontecimientos ya que no fue consultado. ¿Qué puede hacer Jo? Seleccione una o más:',
+        'opciones': [
+            'Presentar una reclamación ante la FIFA contra Jimmy por no pagar los honorarios de servicio por la extensión del contrato',
+            'Nada',
+            'Enviar a Jimmy una factura por los honorarios de servicio por la extensión del contrato',
+            'Presentar una reclamación ante la FIFA contra el FC Stockton por no pagar los honorarios de servicio por la extensión del contrato'
+        ],
+        'respuestas_correctas': ['Nada']  
+    },    
+    {
         'pregunta': 'Junior es un Noruego de 17 años al que su club local, el OFK Clipsy, ofrece un contrato profesional. Su padre, Senior, quiere representarlo en las negociaciones contractuales ¿?De qué opciones dispone? Seleccione una:',
         'opciones': [
             'Senior no puede representar a Junior porque este es menor de edad',
@@ -32,7 +42,7 @@ preguntas_agente_fifa = [
     },         
     {
         'pregunta': 'En circunstancias normales, ¿cómo debe solicitar un agente de fútbol el pago de sus honorarios a un jugador?. Seleccione una:',
-        'opciones': [
+        'opciones': [El 7 de agosto de 2023, el Tribunal de Fútbol de la FIFA dictaminó que el agente M debe pagar al club P la suma de 200,000 USD como indemnización por ruptura de contrato. El 7 de noviembre de 2023, al no haberse pagado el monto debido, el club P presentó una queja ante la Comisión Disciplinaria de la FIFA. ¿Cuáles son las posibles consecuencias para el agente M? Seleccione una o más:
             'Debe de enviar una factura a la federación del jugador',
             'Debe de enviar una solicitud a la Cámara de Agentes de la FIFA',
             'Debe de enviar una factura al jugador',
@@ -170,6 +180,16 @@ preguntas_agente_fifa = [
         ],
         'respuestas_correctas': ['Probibición del cobro de honorarios a menores en virtud de la legislación de un territorio o país','Prohibición del cobro de honorarios a menores por parte de una federación','Ausencia de un contrato profesional']
     },
+    {
+        'pregunta': '¿Cuál de los siguientes eventos provocará la suspensión automática de la licencia de un agente de fútbol? Seleccione una o más:',
+        'opciones': [
+            'No cumplir con sus obligaciones de declaración',
+            'No pagar la cuota anual a la FIFA en el plazo establecido',
+            'No ejercer servicios de representación durante 24 meses consecutivos',
+            'Haber sido demandado ante la Cámara de Agentes del Tribunal de Fútbol de la FIFA por incumplimiento de un acuerdo de representación'
+        ],
+        'respuestas_correctas': ['No pagar la cuota anual a la FIFA en el plazo establecido']
+    },    
     {
         'pregunta': '¿Qué sanción se prevé para los nuevos agentes de fútbol que infrinjan por primera vez las disposiciones sobre el contacto con clientes menores de edad? Seleccione una:',
         'opciones': [
@@ -685,6 +705,16 @@ preguntas_estatuto_transferencia = [
         'respuestas_correctas': ['Enviar al club una notificación por escrito donde solicite el pago de los salarios pendientes y concederle un plazo de al menos 15 días para que cumpla con sus obligaciones económicas']
     },
     {
+        'pregunta': 'El reglamento de sobre el Estatuto y la Transferencia de jugadores de la FIFA: Seleccione una:',
+        'opciones': [
+            'No realiza solicitudes de transferencia de jugadoras (fútbol 11)',
+            'Establece reglas globales y vinculantes sobre el estatus de los jugadores, su elegibilidad para participar en el fútbol organizado, y su transferencia entre clubes pertenecientes a asociaciones',
+            'Se aplica a todas las transferencias e inscripciones de jugadores para las cuales el derecho a recompensas de formación se active a partir del 16 de noviembre de 2022',
+            'Está conforme con los Estatutos de la FIFA. En caso de incoherencia entre los Estatutos y los reglamentos de la FIFA, estos últimos prevalecen en la medida de la incoherencia'
+        ],
+        'respuestas_correctas': ['Establece reglas globales y vinculantes sobre el estatus de los jugadores, su elegibilidad para participar en el fútbol organizado, y su transferencia entre clubes pertenecientes a asociaciones']
+    },    
+    {
         'pregunta': '¿Qué cámara del Tribunal del Fútbol tiene competencia para resolver disputas entre un club y un jugador? Seleccione una:',
         'opciones': [
             'Cámara de solución de disputas',
@@ -693,7 +723,27 @@ preguntas_estatuto_transferencia = [
             'Cámara de resolución de conflictos'
         ],
         'respuestas_correctas': ['Cámara de resolución de disputas']
-    },    
+    },
+    {
+        'pregunta': '¿Cuáles de los siguientes tipos de cláusulas generalmente no se consideran violatorias del artículo 18bis del RETJ? Seleccione una o más:',
+        'opciones': [
+            'Opción de recompra',
+            'Cláusulas que prohíben la transferencia del jugador sin el acuerdo del antiguo club',
+            'Tasas de reventa',
+            'Prima relacionada con el rendimiento'
+        ],
+        'respuestas_correctas': ['Opción de recompra','Tasas de reventa','Prima relacionada con el rendimiento']
+    },
+    {
+        'pregunta': 'Olivio es un jugador portugués que fue transferido del club de su ciudad natal, el Sporting Bau, al club alemán FC Kraut al inicio de la temporada 2024-2025. Después de jugar algunos partidos durante la primera parte de la temporada, el FC Kraut decidió transferir temporalmente a Olivio al FC Ciao, un tercer club, desde enero de 2025 hasta el final de la temporada, es decir, el 30 de junio de 2025. ¿Es elegible Olivio para jugar con el FC Ciao? Seleccione una o más:',
+        'opciones': [
+            'Olivio puede entrenar y jugar con el FC Ciao en partidos no oficiales, independientemente si ha jugado partidos oficiales con el Sporting Bau',
+            'Olivio no puede estar registrado en más de dos clubes durante la misma temporada',
+            'Olivio puede jugar con el FC Ciao, haya jugado o no partidos oficiales con el Sporting Bau',
+            'Olivio solo puede jugar con el FC Ciao si no ha participado en ningún partido oficial con su primer club, el Sporting Bau'
+        ],
+        'respuestas_correctas': ['Olivio no puede estar registrado en más de dos clubes durante la misma temporada']
+    },             
     {
         'pregunta': 'Cuando un club de destino recibe una notificación de pago, ¿de qué plazo dispone para abonar el importe adeudado a la Cámara de Compensación de la FIFA?. Seleccione una:',
         'opciones': [
@@ -704,6 +754,16 @@ preguntas_estatuto_transferencia = [
         ],
         'respuestas_correctas': ['30 días']
     },
+    {
+        'pregunta': 'La jugadora X es una promesa del fútbol femenino. El club A desea contratarla y le propone unirse al equipo como profesional. El club y la jugadora acuerdan que recibirá un porcentaje de la indemnización de transferencia que el club A perciba por su futuro traspaso. ¿Permite el RETJ esta práctica? Seleccione una:',
+        'opciones': [
+            'Sí, dado que la jugadora X no volverá a ser amateur en el futuro',
+            'Sí, el art. 18ter del RETJ no se aplica a las jugadoras',
+            'No, porque esto corresponde a un contrato de derechos de terceros, prohibido por el art. 18ter del RETJ',
+            'Las jugadoras no se consideran terceras en su propio traspaso y pueden beneficiarse de las compensaciones derivadas de su futuro traspaso'
+        ],
+        'respuestas_correctas': ['Las jugadoras no se consideran terceras en su propio traspaso y pueden beneficiarse de las compensaciones derivadas de su futuro traspaso']
+    },    
     {
         'pregunta': '¿En qué moneda pueden generarse órdenes de asignación? Seleccione una:',
         'opciones': [
@@ -2028,6 +2088,16 @@ preguntas_salvaguardia = [
         ],
         'respuestas_correctas': ['Dirigirse al oficial de salvaguardia del club y ponerle al corriente de la situación']
     },
+    {
+        'pregunta': 'El presidente de una asociación miembro está siendo investigado por posibles abusos sexuales. Durante las investigaciones, decide renunciar a su cargo. En este escenario, ¿cuál de las siguientes afirmaciones es correcta? Seleccione una:',
+        'opciones': [
+            'Ninguna de las respuestas es correcta',
+            'El comité de ética sigue siendo competente para investigar y juzgar el caso',
+            'El comité de ética pierde su competencia para investigar y juzgar el caso',
+            'La cámara de instrucción debe suspender las investigaciones'
+        ],
+        'respuestas_correctas': ['El comité de ética sigue siendo competente para investigar y juzgar el caso']
+    },    
                                                                                  
 ]
 

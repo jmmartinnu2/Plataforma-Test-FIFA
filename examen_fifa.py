@@ -625,16 +625,6 @@ preguntas_estatuto_transferencia = [
         'respuestas_correctas': ['Informar al jugador de que podría enfrentarse a medidas disciplinarias si participara en un traspaso puente']
     },
     {
-        'pregunta': '¿Cuál de las siguientes afirmaciones sobre la elegibilidad para jugar con las selecciones nacionales es correcta?. Seleccione una:',
-        'opciones': [
-            'Un jugador solo estará vinculado a una «nacionalidad deportiva» cuando haya disputado un partido en competición oficial',
-            'Un jugador solo estará vinculado a una «nacionalidad deportiva» cuando haya disputado partidos de categoría internacional absoluta',
-            'El Tribunal del Fútbol debe aprobar la elegibilidad de un jugador antes de disputar un partido con una selección nacional',
-            'Un jugador en proceso de adquirir una nueva nacionalidad puede disputar partidos amistosos con la selección nacional de dicha federación miembro'
-        ],
-        'respuestas_correctas': ['Un jugador solo estará vinculado a una «nacionalidad deportiva» cuando haya disputado un partido en competición oficial']
-    },
-    {
         'pregunta': '¿Cuál de las siguientes afirmaciones es correcta en relación con la aplicación del art. 18ter del RETJ a las cláusulas de reventa? Seleccione una o más de una:',
         'opciones': [
             'Las cláusulas de reventa entre clubes están permitidas',
@@ -834,16 +824,7 @@ preguntas_estatuto_transferencia = [
         ],
         'respuestas_correctas': ['Sí']
     },
-    {
-        'pregunta': '¿Cuál de las siguientes afirmaciones sobre la elegibilidad para jugar con las selecciones nacionales es correcta?. Seleccione una:',
-        'opciones': [
-            'El Tribunal del Fútbol debe aprobar la elegibilidad de un jugador antes de disputar un partido con una selección nacional',
-            'Un jugador en proceso de adquirir una nueva nacionalidad puede disputar partidos amistosos con la selección nacional de dicha federación miembro',
-            'Un jugador solo estará vinculado a una «nacionalidad deportiva» cuando haya disputado un partido en competición oficial',
-            'Un jugador solo estará vinculado a una «nacionalidad deportiva» cuando haya disputado partidos de categoría internacional absoluta'
-        ],
-        'respuestas_correctas': ['Un jugador solo estará vinculado a una «nacionalidad deportiva» cuando haya disputado un partido en competición oficial']
-    },
+
     {
         'pregunta': 'Una vez recibida la notificación de que no se ha superado la primera evaluación de cumplimiento, ¿de qué plazo disponela parte correspondiente antes de que la Secretaría Generalde la FIFA traslade la transacción a la Cámara de Compensación de la FIFA para iniciar una segunda evaluaciónde cumplimiento?. Seleccione una:',
         'opciones': [
@@ -1065,16 +1046,6 @@ preguntas_estatuto_transferencia = [
         'respuestas_correctas': ['Un jugador cobra más por su actividad futbolística que los gastos en los que efectivamente incurre','Un contrato escrito']
     },
     {
-        'pregunta': '¿Los jugadores pueden firmar contratos donde se acuerde que tienen derecho a un porcentaje del coste de un futuro traspaso? Seleccione una:',
-        'opciones': [
-            'Sí, incluso aunque el contrato se refiera al coste de futuros traspasos de otros jugadores',
-            'No, porque se trataría de un contrato de derechos de terceros, prohibido por el artículo 18ter del Reglamento sobre el Estatuto y la Transferencia de Jugadores',
-            'Sí, y después el jugador puede traspasar este derecho a su agente de fútbol',
-            'Sí, siempre que dicho porcentaje se aplique el coste de un futuro traspaso del jugador que firma el contrato'
-        ],
-        'respuestas_correctas': ['Sí, siempre que dicho porcentaje se aplique el coste de un futuro traspaso del jugador que firma el contrato']
-    },
-    {
         'pregunta': 'Ibrahim ha fichado por el Red Dragons de China procedente del Green Rangers FC ugandés por 1.000.000 de USD. Como indica su pasaporte deportivo, estuvo inscrito en el Blue Academics FC de Uganda entre todo el año de su 17 cumpleaños y el primer semestre del año en el que cumplió 18. ¿A cuánto asciende la contribución de solidaridad debida al Blue Academics FC por el traspaso de Ibrahim?',
         'opciones': [
             '7250 USD',
@@ -1203,16 +1174,6 @@ preguntas_estatuto_transferencia = [
             'El reembolso de las costas judiciales'
         ],
         'respuestas_correctas': ['Una indemnización adicional']
-    },
-    {
-        'pregunta': 'Dos traspasos consecutivos (nacionales o internacionales) del mismo jugador y conectados entre sí, que tienen lugar en un plazo de 16 semanas Seleccione una:',
-        'opciones': [
-            'se consideran un acuerdo de propiedad de los derechos económicos de futbolistas por parte de terceros (TPO)',
-            'siempre se considera que son un traspaso puente',
-            'se entenderán como traspaso puente, a menos que los clubes y el jugador demuestren lo contrario',
-            'no puede considerarse traspaso puente si el club puente está afiliado a la misma federación que el resto de clubes implicados'
-        ],
-        'respuestas_correctas': ['se entenderán como traspaso puente, a menos que los clubes y el jugador demuestren lo contrario']
     },
     {
         'pregunta': 'Entre otros requisitos, ¿cuántos salarios mensuales deben adeudarse a un jugador a fin de que se considere que tiene causa justificada para rescindir su contrato de conformidad con el artículo 14bis del Reglamento sobre el Estatuto y la Transferencia de Jugadores? Seleccione una:',
@@ -1710,16 +1671,6 @@ preguntas_codigo_disciplinario = [
         'respuestas_correctas': ['Servicios comunitarios a través del fútbol','Suspensión durante un periodo concreto']
     },
     {
-        'pregunta': '¿A qué partes podría imponer sanciones la Comisión Disciplinaria de la FIFA por participar en una transferencia puente?. Seleccione una o más de una:',
-        'opciones': [
-            'A cualquier parte sujeta a los reglamentos y Estatutos de la FIFA que se haya visto involucrada en una transferencia puente',
-            'Solo a jugadores',
-            'A clubes y jugadores',
-            'Solo a clubes'
-        ],
-        'respuestas_correctas': ['A cualquier parte sujeta a los reglamentos y Estatutos de la FIFA que se haya visto involucrada en una transferencia puente','A clubes y jugadores']
-    },
-    {
         'pregunta': '¿Qué sanciones se pueden imponer a un club que contrata aun jugador si no supera la segunda evaluación decumplimiento de la Cámara de Compensación de la FIFA enrelación con una orden de asignación?. Seleccione una o más de una:',
         'opciones': [
             'Una orden para efectuar un pago directamente a un club formador',
@@ -2076,7 +2027,8 @@ preguntas_salvaguardia = [
             'Hablar con un vecino expolicía'
         ],
         'respuestas_correctas': ['Dirigirse al oficial de salvaguardia del club y ponerle al corriente de la situación']
-    },                                                                             
+    },
+                                                                                 
 ]
 
 

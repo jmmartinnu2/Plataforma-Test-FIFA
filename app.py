@@ -9,9 +9,9 @@ from exam.config import ExamConfig
 from exam.exam_manager import ExamManager
 from exam.reports import crear_tabla_historial, guardar_resultado_examen, obtener_historial_examenes, obtener_detalles_examen
 import time
+import os
 
 # Crear el directorio data si no existe
-import os
 if not os.path.exists('data'):
     os.makedirs('data')
 
@@ -51,7 +51,7 @@ def calcular_resultado(preguntas, respuestas_usuario):
     return respuestas_correctas, resultados, feedback
 
 # Función para seleccionar preguntas basadas en temas
-def seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados, num_preguntas):
+def seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados, num_preguntas, historial_preguntas):
     todas_las_preguntas = []
     if not temas_seleccionados:  # Si no se seleccionan temas, usar todas las preguntas
         for categoria in preguntas_por_categoria.values():
@@ -59,10 +59,43 @@ def seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados
     else:
         for tema in temas_seleccionados:
             todas_las_preguntas.extend(preguntas_por_categoria[tema])
-    return random.sample(todas_las_preguntas, num_preguntas)
+    
+    # Excluir preguntas que han sido usadas en los últimos dos exámenes
+    preguntas_disponibles = [p for p in todas_las_preguntas if p['pregunta'] not in historial_preguntas]
+
+    # Seleccionar preguntas sin reemplazo
+    preguntas_seleccionadas = random.sample(preguntas_disponibles, num_preguntas)
+    
+    return preguntas_seleccionadas
+
+# Función para actualizar el historial de preguntas
+def actualizar_historial_preguntas(nuevas_preguntas, num_preguntas):
+    st.session_state.historial_preguntas.extend(nuevas_preguntas)
+    # Mantener solo las preguntas de los últimos dos exámenes
+    if len(st.session_state.historial_preguntas) > 2 * num_preguntas:
+        st.session_state.historial_preguntas = st.session_state.historial_preguntas[-2 * num_preguntas:]
+
+# Función para actualizar el temporizador
+def actualizar_temporizador():
+    now = datetime.now()
+    remaining_time = st.session_state.end_time - now
+
+    if remaining_time.total_seconds() > 0:
+        minutes, seconds = divmod(remaining_time.total_seconds(), 60)
+        timer_placeholder.info(f"Tiempo restante: {int(minutes):02}:{int(seconds):02}")
+        if minutes < 5:  # Recordatorio si quedan menos de 5 minutos
+            st.warning("Quedan menos de 5 minutos.")
+        return True
+    else:
+        timer_placeholder.warning("Tiempo terminado")
+        return False
+
+# Historial de preguntas usadas en los últimos dos exámenes
+if 'historial_preguntas' not in st.session_state:
+    st.session_state.historial_preguntas = []
 
 # Opciones de navegación sin autenticación
-opcion = st.sidebar.selectbox("Selecciona una opción", ["Configurar Examen", "Historial de Exámenes"])
+opcion = st.sidebar.selectbox("Selecciona una opción", ["Configurar Examen", "Historial de Exámenes", "Resultados Detallados"])
 
 if opcion == "Configurar Examen":
     # Configuración del examen
@@ -86,7 +119,8 @@ if opcion == "Configurar Examen":
         st.session_state.mostrar_resultados = False
         st.session_state.ver_correccion = False
         st.session_state.feedback = []
-        st.session_state.preguntas = seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados, num_preguntas)
+        st.session_state.preguntas = seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados, num_preguntas, st.session_state.historial_preguntas)
+        actualizar_historial_preguntas([p['pregunta'] for p in st.session_state.preguntas], num_preguntas)
         st.experimental_rerun()
 
 if 'exam_manager' in st.session_state and st.session_state.exam_manager:
@@ -95,21 +129,6 @@ if 'exam_manager' in st.session_state and st.session_state.exam_manager:
 
     # Crear un espacio vacío para el temporizador
     timer_placeholder = st.sidebar.empty()
-
-    # Temporizador en tiempo real
-    def actualizar_temporizador():
-        now = datetime.now()
-        remaining_time = st.session_state.end_time - now
-
-        if remaining_time.total_seconds() > 0:
-            minutes, seconds = divmod(remaining_time.total_seconds(), 60)
-            timer_placeholder.info(f"Tiempo restante: {int(minutes):02}:{int(seconds):02}")
-            if minutes < 5:  # Recordatorio si quedan menos de 5 minutos
-                st.warning("Quedan menos de 5 minutos.")
-            return True
-        else:
-            timer_placeholder.warning("Tiempo terminado")
-            return False
 
     # Llamada inicial para mostrar el temporizador
     if not actualizar_temporizador():

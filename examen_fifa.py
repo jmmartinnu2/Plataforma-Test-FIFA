@@ -1580,7 +1580,7 @@ preguntas_codigo_disciplinario = [
         'respuestas_correctas': ['La decisión se puede apelar ante la Comisión de Apelación de la FIFA']
     },
     {
-        'pregunta': '¿Las personas sujetas al Código Disciplinario de la FIFA están obligadas a contribuir a esclarecer los hechos de un caso, incluso aunque no estén sujetas a u procedmiento disciplinario? Seleccione una:',
+        'pregunta': '¿Las personas sujetas al Código Disciplinario de la FIFA están obligadas a contribuir a esclarecer los hechos de un caso, incluso aunque no estén sujetas a un procedimiento disciplinario? Seleccione una:',
         'opciones': [
             'Sí, están obligadas a colaborar pero pueden quedar exentas si tienen algún vínculo con la persona investigada',
             'Sí, deben colaborar en cualquier circunstancia',
@@ -1824,7 +1824,7 @@ preguntas_estatutos_fifa = [
         'respuestas_correctas': ['No, porque la JFA no es miembro de la UEFA']
     },
     {
-        'pregunta': '¿Qué órgano de la FIFA es competente para sancionar elincumplimiento de los artículos 18bis y 18ter del Reglamentosobre el Estatuto y la Transferencia de Jugadores?. Seleccione una:',
+        'pregunta': '¿Qué órgano de la FIFA es competente para sancionar el incumplimiento de los artículos 18bis y 18ter del Reglamento sobre el Estatuto y la Transferencia de Jugadores?. Seleccione una:',
         'opciones': [
             'La Comisión de Grupos de Interés del Fútbol de la FIFA',
             'La Comisión Disciplinaria de la FIFA',

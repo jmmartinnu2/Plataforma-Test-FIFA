@@ -61,23 +61,6 @@ def seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados
             todas_las_preguntas.extend(preguntas_por_categoria[tema])
     return random.sample(todas_las_preguntas, num_preguntas)
 
-# Comprobar si el usuario ha iniciado sesión
-# if 'usuario' not in st.session_state:
-#     st.session_state.usuario = None
-
-# if st.session_state.usuario is None:
-#     # Mostrar las opciones de login o registro
-#     opcion = st.sidebar.selectbox("Selecciona una opción", ["Login", "Registrarse"])
-#     if opcion == "Login":
-#         mostrar_login()
-#     elif opcion == "Registrarse":
-#         mostrar_registro()
-# else:
-#     st.sidebar.write(f"Bienvenido {st.session_state.usuario['nombre']}")
-#     if st.sidebar.button("Logout"):
-#         st.session_state.usuario = None
-#         st.experimental_rerun()
-
 # Opciones de navegación sin autenticación
 opcion = st.sidebar.selectbox("Selecciona una opción", ["Configurar Examen", "Historial de Exámenes"])
 
@@ -164,7 +147,7 @@ if 'exam_manager' in st.session_state and st.session_state.exam_manager:
                 st.session_state.feedback = feedback
                 st.session_state.mostrar_resultados = True
                 guardar_resultado_examen(
-                    st.session_state.usuario['id'] if st.session_state.usuario else 0,  # Asignar un id por defecto si no hay usuario
+                    0,  # Asignar un id por defecto ya que no hay usuario
                     datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     'APTO' if respuestas_correctas >= 15 else 'NO APTO',
                     respuestas_correctas,
@@ -216,7 +199,7 @@ if 'exam_manager' in st.session_state and st.session_state.exam_manager:
 
 if opcion == "Historial de Exámenes":
     st.title("Historial de Exámenes")
-    historial = obtener_historial_examenes(st.session_state.usuario['id'] if st.session_state.usuario else 0)
+    historial = obtener_historial_examenes(0)  # Usar 0 como id por defecto para el historial
     if historial:
         df_historial = pd.DataFrame(historial, columns=["ID", "Usuario ID", "Fecha", "Resultado", "Aciertos", "Total Preguntas"])
         st.dataframe(df_historial)

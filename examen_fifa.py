@@ -19,7 +19,17 @@ preguntas_agente_fifa = [
             'Negociar la rescisión del contrato profesional de un entrenador'
         ],
         'respuestas_correctas': ['Representación de Clientes ante el Tribunal de Fútbol de la FIFA','Negociar un acuerdo de patrocinio comercial para un jugador']  
-    },    
+    },
+    {
+        'pregunta': 'Junior es un Noruego de 17 años al que su club local, el OFK Clipsy, ofrece un contrato profesional. Su padre, Senior, quiere representarlo en las negociaciones contractuales ¿?De qué opciones dispone? Seleccione una:',
+        'opciones': [
+            'Senior no puede representar a Junior porque este es menor de edad',
+            'Senior no puede representar a Junior porque no tiene una licencia de agente de fútbol',
+            'Senior puede representar a Junior porque es su tutor legal',
+            'Senior puede representar a Junior si obtiene un permiso especial de FIFPRO'
+        ],
+        'respuestas_correctas': ['Senior no puede representar a Junior porque no tiene una licencia de agente de fútbol']  
+    },         
     {
         'pregunta': 'En circunstancias normales, ¿cómo debe solicitar un agente de fútbol el pago de sus honorarios a un jugador?. Seleccione una:',
         'opciones': [
@@ -633,7 +643,17 @@ preguntas_estatuto_transferencia = [
             'El art. 18ter del RETJ prohíbe las cláusulas de reventa, dado que los clubes son terceros'
         ],
         'respuestas_correctas': ['Las cláusulas de reventa entre clubes están permitidas']
-    },    
+    },
+    {
+        'pregunta': '¿Prohíbe el art. 18ter del Reglamento sobre el Estatuo y la transferencia de jugadores (RETJ) de la FIFA que los clubes acuerden una claúsula de reventa? Seleccione una o más de una:',
+        'opciones': [
+            'Sí, porque las claúsulas de reventa afectan a la integridad de la competición correspondiente',
+            'No, las claúsulas de reventa no incumplen el art. 18ter del RETJ',
+            'No, las claúsulas de reventa entre clubes están permitidas',
+            'Sí, porque los clubes se consideran terceros'
+        ],
+        'respuestas_correctas': ['No, las claúsulas de reventa no incumplen el art. 18ter del RETJ','No, las claúsulas de reventa entre clubes están permitidas']
+    },        
     {
         'pregunta': '¿Es necesario disponer de una cuenta bancaria para superar la evaluación de cumplimiento y para tramitar pagos a través de la Cámara de Compensación de la FIFA? Seleccione una o más de una:',
         'opciones': [
@@ -653,7 +673,17 @@ preguntas_estatuto_transferencia = [
             'Cuando un pasaporte deportivo electrónico (EPP) (con derechos) se considere definitivo, el TMS calcula automáticamente una orden de asignación en la que se incluirá el importe para distribuir entre los clubes formadores'
         ],
         'respuestas_correctas': ['Cuando un pasaporte deportivo electrónico (EPP) (con derechos) se considere definitivo, el TMS calcula automáticamente una orden de asignación en la que se incluirá el importe para distribuir entre los clubes formadores']
-    },             
+    },
+    {
+        'pregunta': '¿Qué sistema(s) electrónico(s) deben implantar y usar todas las federaciones miembro? Seleccione una o más de una:',
+        'opciones': [
+            'Sistema electrónico de transferencias nacionales',
+            'Sistema electrónico de gestión de competiciones',
+            'Sistema electrónico de registro de jugadores',
+            'Sistema electrónico de previsión meteorológica'
+        ],
+        'respuestas_correctas': ['Sistema electrónico de transferencias nacionales','Sistema electrónico de registro de jugadores']
+    },                 
     {
         'pregunta': 'A María, una futbolista profesional, su club le adeuda dos mensualidades. Está convencida de que van a dejar de pagarle su salario, por lo que desea rescindir el contrato que la une a la entidad. Por norma general, ¿qué debería hacer la jugadora de conformidad con el artículo 14bis del Reglamento sobre el Estatuto y la Transferencia de Jugadores de la FIFA antes de rescindir el contrato?. Seleccione una:',
         'opciones': [
@@ -665,6 +695,16 @@ preguntas_estatuto_transferencia = [
         'respuestas_correctas': ['Enviar al club una notificación por escrito donde solicite el pago de los salarios pendientes y concederle un plazo de al menos 15 días para que cumpla con sus obligaciones económicas']
     },
     {
+        'pregunta': '¿Qué cámara del Tribunal del Fútbol tiene competencia para resolver disputas entre un club y un jugador? Seleccione una:',
+        'opciones': [
+            'Cámara de solución de disputas',
+            'Comisión de resolución de disputas',
+            'Cámara de resolución de disputas',
+            'Cámara de resolución de conflictos'
+        ],
+        'respuestas_correctas': ['Cámara de resolución de disputas']
+    },    
+    {
         'pregunta': 'Cuando un club de destino recibe una notificación de pago, ¿de qué plazo dispone para abonar el importe adeudado a la Cámara de Compensación de la FIFA?. Seleccione una:',
         'opciones': [
             '15 días',
@@ -675,6 +715,26 @@ preguntas_estatuto_transferencia = [
         'respuestas_correctas': ['30 días']
     },
     {
+        'pregunta': '¿En qué moneda pueden generarse órdenes de asignación? Seleccione una:',
+        'opciones': [
+            'En cualquiera',
+            'Solo en EUR, USD y GBP',
+            'Solo en EUR',
+            'Solo en EUR y USD'
+        ],
+        'respuestas_correctas': ['Solo en EUR, USD y GBP']
+    },    
+    {
+        'pregunta': '¿Cuáles de los siguientes requisitos deben cumplirse para que la exepción relativa a la Unión Europea (UE) o el Espacio Económico Europeo (EEE) se aplique al traspaso internacional de jugadores menores de edad? Seleccione una más de una:',
+        'opciones': [
+            'El jugador tiene entre 15 y 18 años',
+            'El nuevo club garantiza al jugador una formación académica o escolar, o una formación o educación y capacitación conforme a su vocación',
+            'Cualquier club de la UE o del EEE puede beneficiarse de esta exepción',
+            'El traspaso se efectúa dentro del territorio de la UE o del EEE, o bien el jugador es ciudadano de uno de los países miembros de los territorios citados y se traspasa a un club  de uno de los estados miembros de la UE o del EEE'
+        ],
+        'respuestas_correctas': ['El nuevo club garantiza al jugador una formación académica o escolar, o una formación o educación y capacitación conforme a su vocación','El traspaso se efectúa dentro del territorio de la UE o del EEE, o bien el jugador es ciudadano de uno de los países miembros de los territorios citados y se traspasa a un club  de uno de los estados miembros de la UE o del EEE']
+    },    
+    {
         'pregunta': 'Rania es una exitosa empresaria que ha detectado la necesidad de establecer una academia de fútbol privada en su ciudad. Tras elaborar un plan de negocios, abre la academia Prime Elite, cuyos buenos resultados no tardan en llamar la atención del AFC Royals, campeón nacional de Unia. Su propietario ofrece a Rania un acuerdo de colaboración, en virtud del cual la academia Prime Elite pasará a estar afiliada al AFC Royals y sus jugadores disputarán la liga juvenil de Unia; a cambio, Rania recibirá una participación del 5 % del club. El éxito continuado de la academia lleva a Rania a presentar una solicitud para obtener una licencia de agente de fútbol, pero la FIFA la rechaza. ¿A qué se debe? Seleccione una o más de una:',
         'opciones': [
             'Rania tiene intereses en el AFC Royals',
@@ -683,7 +743,17 @@ preguntas_estatuto_transferencia = [
             'Rania no ha pedido permiso a la FIFA para poner en marcha una academia'
         ],
         'respuestas_correctas': ['Rania tiene intereses en el AFC Royals']
-    },    
+    },
+    {
+        'pregunta': 'El AFC White ha recibido una notificación de pago por valor de 100 000 EUR, pero no ha abonado dicha cantidad a la Cámara de Compensación de la FIFA en los 30 días que establece la normativa. ¿Cuánto tendrá que pagar el AFC White a la Cámara de Compensación de la FIFA? Seleccione una:',
+        'opciones': [
+            '125 000 EUR',
+            '102 500 EUR',
+            '100 000 EUR',
+            '105 000 EUR'
+        ],
+        'respuestas_correctas': ['102 500 EUR']
+    },        
     {
         'pregunta': '¿Se aplica la prohibición de transferencias puente a las cesiones?. Seleccione una:',
         'opciones': [
@@ -1373,7 +1443,17 @@ preguntas_estatuto_transferencia = [
             'El nuevo club del jugador, y no este último, debe de pagar la indemnización'
         ],
         'respuestas_correctas': ['El jugador y su nuevo club tendrán la obligación conjunta de abonar dicho importe']
-    },                                                
+    },
+    {
+        'pregunta': 'A María, una futbolista profesional, su club le adeuda dos mensualidades. Está convencida de que le van a dejar de pagarle su salario, por lo que desea rescindir el contrato que la une a la entidad. Por norma general, ¿Qué debería de hacer la jugadora de conformidad con el artículo 14bis del Reglamento sobre el Estatuto y la Transferencia de jugadores de la FIFA antes de rescindir el contrato? Seleccione una:',
+        'opciones': [
+            'Reunirse en persona con la junta directiva del club para tratar la cuestión',
+            'Contratar a un abogado para iniciar un procedimiento judicial contra el club',
+            'Enviar al club una notificación por escrito donde solicite el pago de los salarios pendientes y concederle un plazo de al menos 15 días para que cumpla con sus obligaciones económicas',
+            'Pedir ayuda al sindicato de futbolistas'
+        ],
+        'respuestas_correctas': ['Enviar al club una notificación por escrito donde solicite el pago de los salarios pendientes y concederle un plazo de al menos 15 días para que cumpla con sus obligaciones económicas']
+    },                                                      
                                     
 ]                       
 
@@ -1672,7 +1752,17 @@ preguntas_estatutos_fifa = [
             'No, porque la FIFA lleva desde 2016 sin aceptar nuevas solicitudes'
         ],
         'respuestas_correctas': ['No, porque la JFA no es miembro de la UEFA']
-    },    
+    },
+    {
+        'pregunta': '¿Qué idiomas se utilizan en los procedimientos de los órganos judiciales de de la FIFA? Seleccione una:',
+        'opciones': [
+            'Todos los idiomas oficiales de la FIFA',
+            'Alemán, español, francés e inglés',
+            'Español, francés e inglés',
+            'Alemán, árabe, español, francés e inglés'
+        ],
+        'respuestas_correctas': ['Español, francés e inglés']
+    },        
     {
         'pregunta': 'Según los Estatutos de la FIFA ¿Cuáles son las consecuencias a las que se enfrentan las federaciones miembro suspendidas? Seleccione una o más de una:',
         'opciones': [
@@ -1949,6 +2039,16 @@ preguntas_salvaguardia = [
         'respuestas_correctas': ['Identificar un riesgo, evaluar su gravedad y actuar para minimizarlo']
     },
     {
+        'pregunta': 'De conformidad con el modelo de código de conducta para el personal y los voluntarios de las federaciones miembro que se incluye en la herramienta de salvaguardia de la infancia, ¿Cuál de los siguientes no es un comportamiento aceptable? Seleccione una o más de una:',
+        'opciones': [
+            'Permitir juegos verbales, físicos o que impliquen una provocación sexual o un contacto físico inapropiado para niños, o bien ser partícipes de estos',
+            'Comunicarse con niños de manera constructiva y adecuada a su edad',
+            'Ninguna de las opciones',
+            'Hacer un uso indebido de las redes sociales, como involucrar a niños en conversaciones privadas o publicar comentarios que puedan poner en riesgo su bienestar o causarles perjuicios'
+        ],
+        'respuestas_correctas': ['Permitir juegos verbales, físicos o que impliquen una provocación sexual o un contacto físico inapropiado para niños, o bien ser partícipes de estos','Hacer un uso indebido de las redes sociales, como involucrar a niños en conversaciones privadas o publicar comentarios que puedan poner en riesgo su bienestar o causarles perjuicios']
+    },    
+    {
         'pregunta': '¿Qué significa el término «mala práctica» en el contexto de la salvaguardia?. Seleccione una:',
         'opciones': [
             'Impartir formación inadecuada',
@@ -1959,7 +2059,7 @@ preguntas_salvaguardia = [
         'respuestas_correctas': ['Comportamiento de personas que trabajan de un modo que no está a la altura de las normas previstas en un código de conducta']
     },
     {
-        'pregunta': 'Mathias es el primer entrenador de un club y descubre queun agente de fútbol se reúne periódicamente y de formaprivada con un jugador infantil a quien dice que no hable deello con los demás jugadores. ¿Qué le aconsejaría a Mathiasque hiciera?. Seleccione una:',
+        'pregunta': 'Mathias es el primer entrenador de un club y descubre que un agente de fútbol se reúne periódicamente y de forma privada con un jugador infantil a quien dice que no hable de ello con los demás jugadores. ¿Qué le aconsejaría a Mathias que hiciera?. Seleccione una:',
         'opciones': [
             'No hacer nada porque no es asunto suyo',
             'Comentar la situación con todas las personas del club y hacer bromas al respecto',
@@ -1967,7 +2067,16 @@ preguntas_salvaguardia = [
             'Informar lo antes posible al responsable de salvaguardia o bienestar del club, ya que se trata de una sospecha grave relacionada con la salvaguardia'
         ],
         'respuestas_correctas': ['Informar lo antes posible al responsable de salvaguardia o bienestar del club, ya que se trata de una sospecha grave relacionada con la salvaguardia']
-    },                                                                         
+    },
+    {
+        'pregunta': 'Por casualidad, un agente de fútbol ha escuchado a un grupo de jugadores jóvenes que se quejaban del nuevo entrenador de su club. Decían que el nuevo técnico a diferencia del anterior, es muy agresivo y siempre está de mal humor. Además de proferir insultos hacia ellos, tiene la costumbre de hacer comentarios despectivos sobre su peso y su aspecto físico. A menudo les da patadas o bofetadas y les grita en el vestuario después de los partidos, sobre todo cuando pierden. El agente de fútbol quiere hacer algo al respecto, pero no puede arriesgarse a que los jóvenes sufran las represalias del entrenador. ¿Qué debería hacer el entrenador? Seleccione una:',
+        'opciones': [
+            'Nada, porque no es un asunto suyo',
+            'Dirigirse al oficial de salvaguardia del club y ponerle al corriente de la situación',
+            'Hablar con un vecino expolicía'
+        ],
+        'respuestas_correctas': ['Dirigirse al oficial de salvaguardia del club y ponerle al corriente de la situación']
+    },                                                                             
 ]
 
 

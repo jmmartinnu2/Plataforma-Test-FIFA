@@ -1,3 +1,8 @@
 streamlit==1.18.0
 pandas==2.0.2
+<<<<<<< HEAD
 numpy==1.23.5
+=======
+numpy==1.23.5
+
+>>>>>>> f8a5868f2ae07d882ae46389434f5eab85562eed

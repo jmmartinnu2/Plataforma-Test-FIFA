@@ -42,7 +42,7 @@ preguntas_agente_fifa = [
     },         
     {
         'pregunta': 'En circunstancias normales, ¿cómo debe solicitar un agente de fútbol el pago de sus honorarios a un jugador?. Seleccione una:',
-        'opciones': [El 7 de agosto de 2023, el Tribunal de Fútbol de la FIFA dictaminó que el agente M debe pagar al club P la suma de 200,000 USD como indemnización por ruptura de contrato. El 7 de noviembre de 2023, al no haberse pagado el monto debido, el club P presentó una queja ante la Comisión Disciplinaria de la FIFA. ¿Cuáles son las posibles consecuencias para el agente M? Seleccione una o más:
+        'opciones': [
             'Debe de enviar una factura a la federación del jugador',
             'Debe de enviar una solicitud a la Cámara de Agentes de la FIFA',
             'Debe de enviar una factura al jugador',

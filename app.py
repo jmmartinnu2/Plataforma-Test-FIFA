@@ -2,7 +2,7 @@ import random
 from datetime import datetime, timedelta
 import streamlit as st
 import pandas as pd
-from examen_fifa import preguntas_por_categoria
+from examen_fifa import preguntas_por_categoria  # Asegúrate de que este archivo está en el mismo directorio
 from auth.auth import mostrar_login, mostrar_registro
 from auth.database import crear_tabla
 from exam.config import ExamConfig

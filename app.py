@@ -63,6 +63,11 @@ def seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados
     # Excluir preguntas que han sido usadas en los últimos dos exámenes
     preguntas_disponibles = [p for p in todas_las_preguntas if p['pregunta'] not in historial_preguntas]
 
+    # Verificar si hay suficientes preguntas disponibles
+    if len(preguntas_disponibles) < num_preguntas:
+        st.warning(f"No hay suficientes preguntas disponibles para los temas seleccionados. Máximo disponible: {len(preguntas_disponibles)}")
+        return []
+
     # Seleccionar preguntas sin reemplazo
     preguntas_seleccionadas = random.sample(preguntas_disponibles, num_preguntas)
     
@@ -120,8 +125,9 @@ if opcion == "Configurar Examen":
         st.session_state.ver_correccion = False
         st.session_state.feedback = []
         st.session_state.preguntas = seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados, num_preguntas, st.session_state.historial_preguntas)
-        actualizar_historial_preguntas([p['pregunta'] for p in st.session_state.preguntas], num_preguntas)
-        st.experimental_rerun()
+        if st.session_state.preguntas:  # Verifica si se seleccionaron preguntas
+            actualizar_historial_preguntas([p['pregunta'] for p in st.session_state.preguntas], num_preguntas)
+            st.experimental_rerun()
 
 if 'exam_manager' in st.session_state and st.session_state.exam_manager:
     exam_manager = st.session_state.exam_manager

@@ -21,6 +21,16 @@ preguntas_agente_fifa = [
         'respuestas_correctas': ['Representación de Clientes ante el Tribunal de Fútbol de la FIFA','Negociar un acuerdo de patrocinio comercial para un jugador']  
     },
     {
+        'pregunta': '¿A qué se aplica el Reglamento de la FIFA sobre Agentes de Fútbol?. Seleccione una o más:',
+        'opciones': [
+            'A todos los contratos de representación en los que las partes reconozcan la aplicabilidad del Reglamento de la FIFA sobre Agentes de Fútbol',
+            'A todos los contratos de representación de dimensión internacional',
+            'A toda conducta vinculada a un traspaso internacional o una transacción internacional',
+            'A todos los contratos de representación de dimensión nacional en aquellos casos en los que no exista un reglamento nacoonal sobre agentes de fútbol'
+        ],
+        'respuestas_correctas': ['A todos los contratos de representación de dimensión internacional','A toda conducta vinculada a un traspaso internacional o una transacción internacional']  
+    },    
+    {
         'pregunta': 'Un Acuerdo de Representación entre un menor y un Agente de Fútbol es ejecutable cuando. Seleccione una o más:',
         'opciones': [
             'no está firmado por el tutor legal del menor',
@@ -864,6 +874,16 @@ preguntas_estatuto_transferencia = [
         ],
         'respuestas_correctas': ['Las cláusulas de reventa entre clubes están permitidas']
     },
+    {
+        'pregunta': 'Por norma general, los jugadores pueden estar inscritos en:',
+        'opciones': [
+            'Un solo club durante una temporada',
+            'Un máximo de dos clubes durante una temporada',
+            'Un máximo de tres clubes durante una temporada',
+            'Un máximo de cuatro clubes durante una temporada'
+        ],
+        'respuestas_correctas': ['Un máximo de tres clubes durante una temporada']
+    },    
     {
         'pregunta': 'Cualquier nueva orden de asignación se envía a: Seleccione una o más de una:',
         'opciones': [
@@ -2004,7 +2024,7 @@ preguntas_estatuto_transferencia = [
             'Sí, los jugadores no son terceros y pueden participar en compensaciones que se abonen por su futuro traspaso'
         ],
         'respuestas_correctas': ['Sí, los jugadores no son terceros y pueden participar en compensaciones que se abonen por su futuro traspaso']
-    },
+    },    
     {
         'pregunta': 'En caso de que un jugador profesional deba pagar una indemnización, ¿Qué implica la obligación conjunta que se estipula en el artículo 17 apartado 2 del Reglamento sobre el Estatuto y la Transferencia de Jugadores? Seleccione una:',
         'opciones': [
@@ -2061,6 +2081,26 @@ preguntas_codigo_disciplinario = [
         ],
         'respuestas_correctas': ['las partes llegan a un acuerdo','un club es desafiliado de su asociación','la supuesta violación no ha sido probada']
     },
+    {
+        'pregunta': '¿Cuáles pueden ser las consecuencias si un jugador profesional rescinde su contrato por razones deportivas? Seleccione una o más:',
+        'opciones': [
+            'Se deducirá puntos del club en la clasificación',
+            'Se impondrán sanciones deportivas al club',
+            'Puede que deba abonarse una indemnización',
+            'No se impondrán sanciones deportivas'
+        ],
+        'respuestas_correctas': ['Puede que deba abonarse una indemnización','No se impondrán sanciones deportivas']
+    },
+    {
+        'pregunta': 'Una jugadora ha sido expulsada por juego brusco y grave. Posteriormente, la Comisión Disciplinaria de la FIFA la suspende durante dos partidos. Una vez que se notifique a la jugadora la decisión motivada pertinente de la Comisión Disciplinaria de la FIFA, ¿Cuál de las siguientes afirmaciones sobre las acciones legales disponibles es correcta? Seleccione una:',
+        'opciones': [
+            'La decisión se puede recurrir ante la Comisión de Apelación de la FIFA',
+            'La decisión se puede recurrir ante el Tribunal de Arbitraje Deportivo',
+            'Todas las opciones son incorrectas',
+            'La decisión es definitva y no puede recurrirse'
+        ],
+        'respuestas_correctas': ['La decisión es definitva y no puede recurrirse']
+    },        
     {
         'pregunta': 'Un jugador es expulsado por conducta violenta. Posteriormente, la Comisión Disciplinaria de la FIFA le impone una multa de 5.000 francos suizos y una suspensión de cinco partidos. Habiendo recibido los motivos de la decisión, el jugador solicita apelar la decisión ante la Comisión de Apelaciones de la FIFA. ¿Cómo respondes? Seleccione una o más:',
         'opciones': [
@@ -2384,6 +2424,26 @@ preguntas_estatutos_fifa = [
         ],
         'respuestas_correctas': ['No, porque la JFA no es miembro de la UEFA']
     },
+    {
+        'pregunta': 'Cuáles de las siguientes afirmaciones sobre la asistencia jurídica gratuita son correctas. Seleccione una o más:',
+        'opciones': [
+            'La Secretaría General de la FIFA resolverá las solicitudes de asistencia jurídica gratuita',
+            'El presidente del la Comisión Disciplinaria o de la Comisión de Ética (según corresponda) resolverá las solicitudes de asistencia jurídica gratuita',
+            'El solicitante seleccionará al abogado pro bono del listado elaborado por la Secretaria General de la FIFA',
+            'Los solicitantes de asistencia jurídica gratuita deberán presentar una petición argumentada acompañada de documentación que la respalde'
+        ],
+        'respuestas_correctas': ['El solicitante seleccionará al abogado pro bono del listado elaborado por la Secretaria General de la FIFA','Los solicitantes de asistencia jurídica gratuita deberán presentar una petición argumentada acompañada de documentación que la respalde']
+    },    
+    {
+        'pregunta': '¿Cuáles de las siguientes personas físicas o jurídcas no pertenecen al ámbito de aplicación personal del Código Disciplinario de la FIFA? Seleccione una:',
+        'opciones': [
+            'Federaciones miembro',
+            'Jugadores',
+            'Clubes',
+            'Confederaciones'
+        ],
+        'respuestas_correctas': ['Confederaciones']
+    },    
     {
         'pregunta': '¿Qué idiomas se utilizan en los procedimientos de los órganos judiciales de de la FIFA? Seleccione una:',
         'opciones': [
@@ -2827,7 +2887,17 @@ preguntas_salvaguardia = [
             'Los jugadores están pasando unas estupendas vacaciones juntos'
         ],
         'respuestas_correctas': ['Descuido','Explotación']
-    },        
+    },
+    {
+        'pregunta': '¿Cuál es el objetivo de los códigos de salvaguardia en el fútbol? Seleccione una o más:',
+        'opciones': [
+            'Definir patrones de buenas prácticas y conducta',
+            'Explicar como proteger a los niños de factores perniciosos',
+            'Responsabilizar a las personas de su conducta',
+            'Demostrar que la salvaguardia solo consiste en sancionar infracciones'
+        ],
+        'respuestas_correctas': ['Definir patrones de buenas prácticas y conducta','Responsabilizar a las personas de su conducta']
+    },            
     {
         'pregunta': 'Marta es una jugadora brasileña de 17 años que va a ser traspasada a un gran club europeo. Es su primera experiencia profesional fuera de su país y su primer viaje al extranjero (a Portugal). Viaja con su nuevo y reputado agente, al que sólo ha visto una vez. Tras firmar con éxito el contrato con el club, el agente le propone celebrarlo con unas copas en el bar del hotel. Marta se siente incómoda con esta propuesta, pero se siente presionada a tomar unas copas con su agente. Después, él la invita a su habitación para ver juntos un partido. Mientras están en su habitación, él empieza a piropearla por ser extremadamente atractiva y le dice que, después de todo el esfuerzo que ha hecho para ficharla por el gran club, debería mostrarle su gratitud con un beso. ¿Qué opinas de esta situación? Seleccione una o más de una',
         'opciones': [

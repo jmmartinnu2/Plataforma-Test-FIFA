@@ -2251,7 +2251,7 @@ preguntas_codigo_disciplinario = [
         'respuestas_correctas': ['Sí, siempre que dicho porcentaje se aplique al coste de un futuro traspaso del jugador']
     },
     {
-        'pregunta': 'La Comisión Disciplinaria de la FIFA considera que usted es culpable de incumplir una decisión que le ordenaba pagar a uno de sus exjugadores. Se le ha notifcado la decisión, pero usted quisiera saber los motivos en los que se basa. ¿Cuál es el plazo para solicitar el fundamento íntegor de la decisión? ',
+        'pregunta': 'La Comisión Disciplinaria de la FIFA considera que usted es culpable de incumplir una decisión que le ordenaba pagar a uno de sus exjugadores. Se le ha notifcado la decisión, pero usted quisiera saber los motivos en los que se basa. ¿Cuál es el plazo para solicitar el fundamento íntegor de la decisión? Seleccione una:',
         'opciones': [
             'Cinco días, a contar desde la notificación de la decisión',
             '30 días, a contar desde la notificación de la decisión',
@@ -2819,7 +2819,7 @@ preguntas_salvaguardia = [
         'respuestas_correctas': ['Informar al oficial de salvaguardia del club o la federación correspondiente. Si el oficial de salvaguardia no está disponible, informar directamente del asunto a la agencia de protección del menor local o a la policía']
     },
     {
-        'pregunta': '',
+        'pregunta': 'Los menores liberianos son trasladados a una academia de fútbol no registrada en Laos, en el sudeste asiático, sin un entrenador adecuado, instalaciones médicas ni servicios educativos. Los jugadores son gravemente abandonados y explotados, no han recibido pago, el club les ha confiscado sus pasaportes y han sido sometidos a condiciones espantosas, incluido dormir en el suelo del estadio. Atrapados en sus contratos, a los jugadores se les dice que sólo podrán irse una vez que la academia haya recuperado todos sus costos y gastos. ¿Qué tipo de daño han sufrido los jugadores? Seleccione una o más de una:',
         'opciones': [
             'Descuido',
             'No hay ningún daño en este caso',

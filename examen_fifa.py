@@ -21,6 +21,46 @@ preguntas_agente_fifa = [
         'respuestas_correctas': ['Representación de Clientes ante el Tribunal de Fútbol de la FIFA','Negociar un acuerdo de patrocinio comercial para un jugador']  
     },
     {
+        'pregunta': 'Si un jugador menor de edad no desea firmar un contrato de representación con un agente de fútbol, ¿quién puede hacerlo en su nombre? Seleccione una:',
+        'opciones': [
+            'El presidente del club del jugador',
+            'El juez único de la Cámara del Estatuto del Jugador del Tribunal del Fútbol de la FIFA',
+            'Un oficial del club',
+            'Nadie'
+        ],
+        'respuestas_correctas': ['Nadie']  
+    },    
+    {
+        'pregunta': '¿Cuáles de las siguientes personas no pueden ser agente de fútbol. Seleccione una o más:',
+        'opciones': [
+            'Un entrenador aficionado',
+            'Un jugador aficionado',
+            'Un entrenador profesional',
+            'Un jugador profesional'
+        ],
+        'respuestas_correctas': ['Un entrenador aficionado','Un entrenador profesional','Un jugador profesional']  
+    },    
+    {
+        'pregunta': '¿Cuál es la duración máxima de los contratos de representación firmados entre un agente de fútbol y un club? Seleccione una:',
+        'opciones': [
+            'No tienen duración máxima',
+            '48 meses',
+            '24 meses',
+            '36 meses'
+        ],
+        'respuestas_correctas': ['No tienen duración máxima']  
+    },    
+    {
+        'pregunta': '¿Cuál es el número máximo de clubes a los que puede representar de forma simultánea un agente de fútbol? Seleccione una o más de una:',
+        'opciones': [
+            'Un agente de fútbol puede prestar servicios de representación a más de 15 clubes a la vez',
+            'Un agente de fútbol no puede prestar servicios de representación a más de 10 clubes a la vez',
+            'Un agente de fútbol no puede prestar servicios de representación a más de 5 clubes a la vez',
+            'Un agente de fútbol puede prestar servicios de representación a más de 10 clubes a la vez'
+        ],
+        'respuestas_correctas': ['Un agente de fútbol puede prestar servicios de representación a más de 15 clubes a la vez','Un agente de fútbol puede prestar servicios de representación a más de 10 clubes a la vez']  
+    },    
+    {
         'pregunta': '¿A qué se aplica el Reglamento de la FIFA sobre Agentes de Fútbol?. Seleccione una o más:',
         'opciones': [
             'A todos los contratos de representación en los que las partes reconozcan la aplicabilidad del Reglamento de la FIFA sobre Agentes de Fútbol',
@@ -161,7 +201,7 @@ preguntas_agente_fifa = [
         'respuestas_correctas': ['Nada']  
     },
     {
-        'pregunta': '¿Cuándo son aplicables los contratos de representación entre un jugador menor de edad y un agente futbolístico? Seleccione una o más de una:',
+        'pregunta': '¿Cuándo son aplicables los contratos de representación entre un jugador menor de edad y un agente de fútbol? Seleccione una o más de una:',
         'opciones': [
             'Cuando sólo llevan la firma del entrenador del menor',
             'Cuando no llevan la firma del tutor legal del menor',
@@ -399,7 +439,17 @@ preguntas_agente_fifa = [
             'Haber sido demandado ante la Cámara de Agentes del Tribunal de Fútbol de la FIFA por incumplimiento de un acuerdo de representación'
         ],
         'respuestas_correctas': ['No pagar la cuota anual a la FIFA en el plazo establecido']
-    },    
+    },
+    {
+        'pregunta': '¿Cuál de los siguientes hechos provocará la suspensión automática de la licencia de un agente de fútbol? Seleccione una o más:',
+        'opciones': [
+            'No abonar la cuota anual de la licencia de la FIFA en el plazo marcado en la plataforma',
+            'No prestar servicios de representación durante 24 meses consecutivos',
+            'No cumplir con sus obligaciones de transparencia e información',
+            'Ser objeto de una demanda ante la Cámara de Agentes del Tribunal del Fútbol de la FIFA por incumplimiento de un contrato de representación'
+        ],
+        'respuestas_correctas': ['No abonar la cuota anual de la licencia de la FIFA en el plazo marcado en la plataforma','No cumplir con sus obligaciones de transparencia e información']
+    },        
     {
         'pregunta': '¿Qué sanción se prevé para los nuevos agentes de fútbol que infrinjan por primera vez las disposiciones sobre el contacto con clientes menores de edad? Seleccione una:',
         'opciones': [
@@ -875,6 +925,16 @@ preguntas_estatuto_transferencia = [
         'respuestas_correctas': ['Las cláusulas de reventa entre clubes están permitidas']
     },
     {
+        'pregunta': 'Arthur es un jugador brasileño de 16 años que actualmente reside en Portugal junto a sus padres y milita en un club local. Un club italiano desea inscribirlo, pero en estos momentos sus padres no están dispuestos a cambiar de domicilio. ¿Puede Arthur mudarse por su cuenta a Italia y disputar partidos oficiales con el club de dicho país? Seleccione una:',
+        'opciones': [
+            'De conformidad con el art. 19, apdo. 2 a) del Reglamento sobre el Estatuto y la Transferencia de Jugadores, Arthur puede traspasarse al club italiano si sus padres se mudan con él',
+            'De conformidad con el art. 19, apdo. 2 b) del Reglamento sobre el Estatuto y la Transferencia de Jugadores, Arthur puede traspasarse al club italiano sin condiciones adicionales',
+            'De conformidad con el art. 19, apdo. 2 b) del Reglamento sobre el Estatuto y la Transferencia de Jugadores, Arthur puede traspasarse al club italiano siempre que este último cumpla con ciertas obligaciones mínimas',
+            'En el art. 19, apdo. 2 del Reglamento sobre el Estatuto y la Transferencia de Jugadores no se prevén excepciones aplicables al caso de Arthur. Por lo tanto, no se le puede traspasar al club italiano'
+        ],
+        'respuestas_correctas': ['De conformidad con el art. 19, apdo. 2 b) del Reglamento sobre el Estatuto y la Transferencia de Jugadores, Arthur puede traspasarse al club italiano siempre que este último cumpla con ciertas obligaciones mínimas']
+    },    
+    {
         'pregunta': 'Por norma general, los jugadores pueden estar inscritos en:',
         'opciones': [
             'Un solo club durante una temporada',
@@ -883,7 +943,47 @@ preguntas_estatuto_transferencia = [
             'Un máximo de cuatro clubes durante una temporada'
         ],
         'respuestas_correctas': ['Un máximo de tres clubes durante una temporada']
-    },    
+    },
+    {
+        'pregunta': 'Un club formador que no supere la primera evaluación de cumplimiento. Seleccione una o más de una:',
+        'opciones': [
+            'Será sancionado con una multa',
+            'Recibirá un apercibimiento',
+            'Será sancionado con su baja',
+            'No será sancionado, teniendo en cuenta que puede superar la segunda evaluación de cumplimiento'
+        ],
+        'respuestas_correctas': ['Será sancionado con una multa','Recibirá un apercibimiento']
+    },
+    {
+        'pregunta': 'Alexandre es un futbolista brasileño que cumplió 17 años en enero de 2024. Está inscrito como jugador profesional en el FC Carnaval de su ciudad natal en Brasil. En agosto de 2024, el club español Hola AC inició negociaciones con el FC Carnaval. Ambos clubes acordaron el traspaso permanente del jugador a España de cara a la temporada 2024-25. Al Hola AC le gustará inscribir al futbolista antes del cierre del periodo correspondiente, el 2 de septiembre de 2024. ¿Puede traspasarse a Alexandre al Hola AC antes de dicha fecha? ¿Debería ir acompañado de sus padres? Seleccione una:',
+        'opciones': [
+            'Por norma general, dado que Alexandre es menor de edad, debe esperar a cumplir 18 años en enero de 2025. En este caso, resulta obvio que el cambio de domicilio de los padres está relacionado con el fútbol. Por lo tanto, no justificaría ninguna exención de cumplir la regla general',
+            'Alexandre puede ser traspasado de inmediato al club español, siempre que vaya acompañado de sus padres',
+            'Alexandre puede ser traspasado de inmediato al club español, con o sin sus padres, ya que tiene el estatus de profesional',
+            'Alexandre puede ser traspasado de inmediato al club español si este proporciona al jugador una formación o entrenamiento futbolístico adecuado que corresponda a los mejores estándares nacionales'
+        ],
+        'respuestas_correctas': ['Por norma general, dado que Alexandre es menor de edad, debe esperar a cumplir 18 años en enero de 2025. En este caso, resulta obvio que el cambio de domicilio de los padres está relacionado con el fútbol. Por lo tanto, no justificaría ninguna exención de cumplir la regla general']
+    },        
+    {
+        'pregunta': '¿A cuál de las siguientes consecuencias puede exponerse un club que adeude a un jugador al menos dos salarios mensuales vencidos, en contravención de la legalidad? Seleccione una o más de una:',
+        'opciones': [
+            'Se considerará que el club tiene una causa justificada para rescindir el contrato',
+            'El jugador puede tener derecho a una indemnización',
+            'El club podrá recibir una advertencia',
+            'El jugador puede rescindir el contrato de manera unilateral'
+        ],
+        'respuestas_correctas': ['El jugador puede tener derecho a una indemnización','El jugador puede rescindir el contrato de manera unilateral']
+    },
+    {
+        'pregunta': 'La federación miembro A no tiene integrados en la interfaz FIFA Connect su sistema electrónico de registro de jugadores ni su sistema electrónico de transferencias nacionales. Además, no facilitó información precisa en relación con la inscripción del jugador X por parte del club B, como consecuencia de lo cual el club B no ha recibido la compensación por formación a la que le da derecho el EPP YYYY, que es definitivo y vinculante. En este caso, la federación miembro A: Seleccione una o más de una:',
+        'opciones': [
+            'Puede verse obligada a abonar una indemnización al club B por un importe equivalente a la compensación por formación que debió pagarle en su momento',
+            'Debe solicitar a la FIFA la reapertura del EPP YYYY para informar sobre el periodo de inscripción correspondiente al club B',
+            'Puede presentar una demanda en nombre del club B ante la Cámara del Estatuto del Jugador en la que se solicite el pago de la compensación por formación adeudado a este club',
+            'Puede ser sancionada con una multa'
+        ],
+        'respuestas_correctas': ['Puede verse obligada a abonar una indemnización al club B por un importe equivalente a la compensación por formación que debió pagarle en su momento','Puede ser sancionada con una multa']
+    },            
     {
         'pregunta': 'Cualquier nueva orden de asignación se envía a: Seleccione una o más de una:',
         'opciones': [
@@ -894,6 +994,16 @@ preguntas_estatuto_transferencia = [
         ],
         'respuestas_correctas': ['El nuevo club y los clubes formadores con derecho a asignación','La Cámara de Compensación de la FIFA']
     },
+    {
+        'pregunta': '¿Cuál de los siguientes es un servicio de representación de conformidad con el Reglamento de la FIFA sobre Agentes de Fútbol?. Seleccione una:',
+        'opciones': [
+            'La gestión de cuentas de jugadores en redes sociales',
+            'El asesoramiento a jugadores en materia inmobiliaria',
+            'La negociación de contratos de trabajo en nombre de jugadores',
+            'La representación de jugadores ante el Tribunal de Arbitraje del Deporte (TAS)'
+        ],
+        'respuestas_correctas': ['La negociación de contratos de trabajo en nombre de jugadores']
+    },    
     {
         'pregunta': '¿A partir de cuándo se debe utilizar la Cámara de Compensación de la FIFA para pagar las tarifas de servicio correspondientes a los Agentes de Fútbol? Seleccione una:',
         'opciones': [
@@ -1002,7 +1112,7 @@ preguntas_estatuto_transferencia = [
             'No, porque solo se admite el pago de los honorarios estipulado en el contrato de representación',
             'No, porque Anthony no puede posponer el pago de los honorarios unilateralmente'
         ],
-        'respuestas_correctas': ['No, porque solo se admite el pago de los honorarios estipulado en el contrato de representación','No, porque Anthony no puede posponer el pago de los honorarios unilateralmente']
+        'respuestas_correctas': ['Sí, porque son razonables','Sí, porque los pagos en especie están permitidos si su valor es equivalente o superior al valor de los honorarios']
     },
     {
         'pregunta': '¿Puede sancionarse a un jugador por infringir el artículo 5bis del RSTP? Seleccione una:',
@@ -1034,6 +1144,16 @@ preguntas_estatuto_transferencia = [
         ],
         'respuestas_correctas': ['Cuando un pasaporte deportivo electrónico (EPP) (con derechos) se considere definitivo, el TMS calcula automáticamente una orden de asignación en la que se incluirá el importe para distribuir entre los clubes formadores']
     },
+    {
+        'pregunta': 'El club A desea contratar a un jugador del club B, y el club B cifra la indemnización por transferencia en 20 millones de EUR. El club A ofrece pagar 5 millones de euros al club B y accede a formalizar una prima de reventa en favor del club B correspondiente al 60 % del importe que reciba por un posible futuro traspaso del jugador. ¿Esta situación cumple lo estipulado en el RETJ? Seleccione una:',
+        'opciones': [
+            'No, porque un tercero tendría derecho a recibir una compensación por el futuro traspaso del jugador',
+            'No, porque las cláusulas de reventa son abusivas y están prohibidas de conformidad con el RETJ',
+            'Sí, pero únicamente si el club A y el club B utilizan los servicios del mismo agente de fútbol',
+            'Sí, el RETJ no prohíbe las cláusulas de reventa'
+        ],
+        'respuestas_correctas': ['Sí, el RETJ no prohíbe las cláusulas de reventa']
+    },    
     {
         'pregunta': '¿En qué plazo debe transmitir el sistema electrónico nacional de registro de jugadores a la FIFA la información sobre un traspaso nacional con indemnización por transferencia? Selecciona una:',
         'opciones': [
@@ -1285,7 +1405,7 @@ preguntas_estatuto_transferencia = [
         'respuestas_correctas': ['El nuevo club garantiza al jugador una formación académica o escolar, o una formación o educación y capacitación conforme a su vocación','El traspaso se efectúa dentro del territorio de la UE o del EEE, o bien el jugador es ciudadano de uno de los países miembros de los territorios citados y se traspasa a un club  de uno de los estados miembros de la UE o del EEE']
     },
     {
-        'pregunta': '¿Cómo se calcula la indemnización por incumplimiento de contrato? Selecciona una:',
+        'pregunta': '¿Cómo se calcula la indemnización por incumplimiento contractual? Selecciona una:',
         'opciones': [
             'En función de la situación financiera del club',
             'Basándose únicamente en el valor de mercado actual del jugador',
@@ -1335,6 +1455,16 @@ preguntas_estatuto_transferencia = [
         'respuestas_correctas': ['Sí, el artículo 5bis del Reglamento sobre el Estatuto y la Transferencia de Jugadores de la FIFA se aplica tanto a traspasos permanentes como cesiones']
     },
     {
+        'pregunta': '¿Puede producirse una transferencia puente si los dos traspasos consecutivos se dan en un plazo superior a 16 semanas?. Seleccione una:',
+        'opciones': [
+            'Sí, y se producirá independientemente de si se trata de traspasos o cesiones',
+            'Sí, pero solo en traspasos de carácter internacional',
+            'No, a menos que esté involucrado un agente de fútbol',
+            'No, en ningún caso'
+        ],
+        'respuestas_correctas': ['Sí, y se producirá independientemente de si se trata de traspasos o cesiones']
+    },    
+    {
         'pregunta': 'Un futbolista ha sido contratado sin acuerdo de transferencia (fuera de contrato) por el FC Blue (Francia) tras haber sido contratado previamente por el FC Red (Mongolia), club que entrenó al jugador hasta el final del año natural en el que cumplió 20 años. El FC Red concedió al jugador la carta de libertad, firmada y sellada por el club, en la que se estipulaba, entre otros aspectos, que «el FC Red renuncia irrevocablemente a su derecho a percibir una indemnización por formación por la inscripción del jugador en el FC Blue». ¿Se puede registrar este documento en el sistema de la Cámara de Compensación de la FIFA?. Seleccione una:',
         'opciones': [
             'Sí, el FC Red debe subir el documento al TMS',
@@ -1364,6 +1494,16 @@ preguntas_estatuto_transferencia = [
         ],
         'respuestas_correctas': ['Si no ha cumplido con su obligación de realizar un pago a la Cámara de Compensación de la FIFA o a un club formador, el nuevo club deberá abonar la totalidad del importe requerido y facilitar el comprobante de pago correspondiente a la Secretaría General de la FIFA','Si no ha superado una segunda evaluación de cumplimiento, el club deberá superar otra posterior']
     },
+    {
+        'pregunta': 'El Reglamento de la Cámara de Compensación de la FIFA: Seleccione una:',
+        'opciones': [
+            'Es acorde con los Estatutos de la FIFA. En caso de incoherencia entre los Estatutos de la FIFA y el Reglamento, prevalecerá este último',
+            'Se aplica a todos los traspasos y registros de jugadores en los que el factor desencadenante del derecho a las compensaciones por formación se produce a partir del 16 de noviembre de 2022',
+            'No se aplica a traspasos en el ámbito del fútbol femenino (fútbol once)',
+            'Establece las normas mundiales y obligatorias concernientes al estatuto de los jugadores y su elegibilidad para participar en el fútbol organizado, así como su transferencia entre clubes de distintas federaciones'
+        ],
+        'respuestas_correctas': ['Se aplica a todos los traspasos y registros de jugadores en los que el factor desencadenante del derecho a las compensaciones por formación se produce a partir del 16 de noviembre de 2022']
+    },    
     {
         'pregunta': 'El Aurora FC es un club profesional famoso por fichar ajugadoras de gran calidad de todo el mundo. La entidad desea hacerse con los servicios de Gabriela y le ha hecho llegar un contrato donde se estipula lo siguiente: «La validez del presente contrato está supeditada de forma estricta a los resultados positivos de un examen médico y a la concesión de un permiso de trabajo». ¿Cuáles de las siguientes afirmaciones son correctas?. Seleccione una o más de una:',
         'opciones': [
@@ -1416,7 +1556,7 @@ preguntas_estatuto_transferencia = [
     },    
 
     {
-        'pregunta': 'Una vez recibida la notificación de que no se ha superado la primera evaluación de cumplimiento, ¿de qué plazo disponela parte correspondiente antes de que la Secretaría Generalde la FIFA traslade la transacción a la Cámara de Compensación de la FIFA para iniciar una segunda evaluaciónde cumplimiento?. Seleccione una:',
+        'pregunta': 'Una vez recibida la notificación de que no se ha superado la primera evaluación de cumplimiento, ¿de qué plazo dispone la parte correspondiente antes de que la Secretaría General de la FIFA traslade la transacción a la Cámara de Compensación de la FIFA para iniciar una segunda evaluación de cumplimiento?. Seleccione una:',
         'opciones': [
             'Un año',
             'Seis meses',
@@ -1464,7 +1604,17 @@ preguntas_estatuto_transferencia = [
             'Se abonan compensaciones por formación a todos los clubes pertinentes por los traspasos'
         ],
         'respuestas_correctas': ['El traspaso al «club intermedio» se efectúa como inscripción de carácter técnico']
-    },    
+    },
+    {
+        'pregunta': 'Las normas sobre préstamos se aplican. Seleccione una:',
+        'opciones': [
+            'únicamente a jugadores profesionales mayores de 18 años',
+            'únicamente a jugadores profesionales',
+            'únicamente a jugadores aficionados',
+            'a jugadores aficionados o profesionales'
+        ],
+        'respuestas_correctas': ['únicamente a jugadores profesionales']
+    },        
     {
         'pregunta': 'El FC Cista quiere contratar a un jugador aficionado del FCAregano. El FC Cista desea ofrecerle su primer contrato profesional, por lo que se trataría de la primera inscripción del futbolista con dicho estatus. Sin embargo, al club le preocupan los costes relacionados con la indemnización por formación. Para solucionar el problema, el FC Cista le pide alFC Provo que le ofrezca al jugador su primer contrato profesional. El FC Provo es un club de 4.ª categoría de formación, por lo que estaría exento del pago de laindemnización por formación. El plan sería que el FC Provo cediera posteriormente al jugador al FC Cista durante dos temporadas, sin coste alguno. ¿Se infringiría en este supuestola normativa de la FIFA?. Seleccione una o más de una:',
         'opciones': [
@@ -2072,6 +2222,16 @@ preguntas_codigo_disciplinario = [
         'respuestas_correctas': ['El FC Mountain puede ser objeto de medidas disciplinarias por conducta inadecuada a raíz de las sanciones disciplinarias individuales que ha impuesto el árbitro a sus jugadores']
     },
     {
+        'pregunta': '¿Cuál de los siguientes órganos tiene competencia para juzgar las conductas relacionadas con la manipulación de partidos?. Seleccione una:',
+        'opciones': [
+            'La Comisión Disciplinaria y la Comisión de Ética',
+            'La Comisión de Ética',
+            'La Comisión Disciplinaria',
+            'Solamente la Comisión de Apelación'
+        ],
+        'respuestas_correctas': ['La Comisión Disciplinaria']
+    },    
+    {
         'pregunta': 'El procedimiento disciplinario podrá cerrarse cuando. Seleccione una o más:',
         'opciones': [
             'un club desciende',
@@ -2131,6 +2291,16 @@ preguntas_codigo_disciplinario = [
         ],
         'respuestas_correctas': ['Su licencia de agente de fútbol será suspendida hasta que se pague el importe adeudado','Se le concederá un plazo final de 30 días para pagar el importe adeudado']
     },
+    {
+        'pregunta': 'El 7 de agosto de 2023, el Tribunal del Fútbol de la FIFA emitió un fallo en el que ordenaba al agente M el pago de una indemnización de 200 000 CHF al club P por incumplimiento de contrato. El 7 de noviembre del mismo año, dado que el importe adeudado seguía sin abonarse, el club P presentó una reclamación ante la Comisión Disciplinaria de la FIFA. ¿Cuáles son las posibles consecuencias para el agente M? Seleccione una o más:',
+        'opciones': [
+            'Se le concederá un plazo de gracia último y definitivo de 30 días para que abone el importe adeudado',
+            'Será sancionado con una multa de 15 000 CHF',
+            'Se suspenderá su licencia hasta que abone el importe adeudado',
+            'Se le prohibirá participar en cualquier actividad relacionada con el fútbol durante un periodo de tres meses'
+        ],
+        'respuestas_correctas': ['Se le concederá un plazo de gracia último y definitivo de 30 días para que abone el importe adeudado','Será sancionado con una multa de 15 000 CHF','']
+    },    
     {
         'pregunta': 'Sanciones provisionales en procedimientos éticos. Seleccione una o más de una:',
         'opciones': [
@@ -2291,7 +2461,7 @@ preguntas_codigo_disciplinario = [
         'respuestas_correctas': ['Sí, siempre que dicho porcentaje se aplique al coste de un futuro traspaso del jugador']
     },
     {
-        'pregunta': 'La Comisión Disciplinaria de la FIFA considera que usted es culpable de incumplir una decisión que le ordenaba pagar a uno de sus exjugadores. Se le ha notifcado la decisión, pero usted quisiera saber los motivos en los que se basa. ¿Cuál es el plazo para solicitar el fundamento íntegor de la decisión? Seleccione una:',
+        'pregunta': 'La Comisión Disciplinaria de la FIFA considera que usted es culpable de incumplir una decisión que le ordenaba pagar a uno de sus exjugadores. Se le ha notifcado la decisión, pero usted quisiera saber los motivos en los que se basa. ¿Cuál es el plazo para solicitar el fundamento íntegro de la decisión? Seleccione una:',
         'opciones': [
             'Cinco días, a contar desde la notificación de la decisión',
             '30 días, a contar desde la notificación de la decisión',
@@ -2351,7 +2521,7 @@ preguntas_codigo_disciplinario = [
         'respuestas_correctas': ['Prohibición de inscribir nuevos jugadores']
     },
     {
-        'pregunta': '¿En cuáles de las siguientes situaciones es competente laComisión de Apelación de la FIFA para decidir sobre unrecurso presentado por un jugador contra una decisión de laComisión Disciplinaria de la FIFA?. Seleccione una o más de una:',
+        'pregunta': '¿En cuáles de las siguientes situaciones es competente la Comisión de Apelación de la FIFA para decidir sobre un recurso presentado por un jugador contra una decisión de la Comisión Disciplinaria de la FIFA?. Seleccione una o más de una:',
         'opciones': [
             'El jugador ha sido sancionado con una suspensión de dos partidos',
             'El jugador ha sido sancionado con una multa de 15 000 CHF',
@@ -2495,7 +2665,7 @@ preguntas_estatutos_fifa = [
         'respuestas_correctas': ['La Federación del órgano que haya adoptado la decisión']
     },
     {
-        'pregunta': '¿Qué órgano de la FIFA es competente para decidir sobre posibles infracciones del art. 18ter del RETJ? Seleccione uno:',
+        'pregunta': '¿Qué órgano de la FIFA es competente para decidir sobre posibles infracciones del art. 18ter del RETJ? Seleccione una:',
         'opciones': [
             'El Órgano de Decisión de la Comisión de Ética de la FIFA',
             'El Tribunal del Fútbol de la FIFA',
@@ -2503,7 +2673,17 @@ preguntas_estatutos_fifa = [
             'El Órgano de Investigación de la Comisión de Ética de la FIFA'
         ],
         'respuestas_correctas': ['La Comisión Disciplinaria de la FIFA']
-    },    
+    },
+    {
+        'pregunta': '¿Qué órgano de la FIFA es competente para decidir sobre posibles incumplimientos del art. 18bis del RETJ? Seleccione una:',
+        'opciones': [
+            'El Órgano de Instrucción de la Comisión de Ética de la FIFA',
+            'La Comisión Disciplinaria de la FIFA',
+            'El Órgano de Decisión de la Comisión de Ética de la FIFA',
+            'El Tribunal del Fútbol de la FIFA'
+        ],
+        'respuestas_correctas': ['La Comisión Disciplinaria de la FIFA']
+    },        
     {
         'pregunta': '¿Cuales de los siguiente requisitos son obligatorios para convertirse en federación miembro de la FIFA? Seleccione una o más de una:',
         'opciones': [
@@ -2525,7 +2705,7 @@ preguntas_estatutos_fifa = [
         'respuestas_correctas': ['Ninguna, dado que dichos procedimientos son gratuitos']
     },
     {
-        'pregunta': 'La Federación de Fútbol de Jersey (JFA) es responsable de laorganización de este deporte en la Bailía de Jersey,dependencia insular de la Corona británica. La JFA presentóuna solicitud para ingresar en la UEFA, pero fue rechazada.¿Tiene alguna posibilidad de que se acepte su solicitud paraser federación miembro de la FIFA?. Seleccione una:',
+        'pregunta': 'La Federación de Fútbol de Jersey (JFA) es responsable de la organización de este deporte en la Bahía de Jersey, dependencia insular de la Corona británica. La JFA presentó una solicitud para ingresar en la UEFA, pero fue rechazada.¿Tiene alguna posibilidad de que se acepte su solicitud para ser federación miembro de la FIFA?. Seleccione una:',
         'opciones': [
             'Sí, porque la afi liación a una confederación no es requisito para ser miembro de la FIFA',
             'Sí, a tenor del estatus especial que se da a las federaciones británicas',
@@ -2750,7 +2930,7 @@ preguntas_salvaguardia = [
         'respuestas_correctas': ['Explotación','Desatención']
     },
     {
-        'pregunta': '¿Cuáles son los tres pasos necesarios para gestionar losriesgos?. Seleccione una:',
+        'pregunta': '¿Cuáles son los tres pasos necesarios para gestionar los riesgos?. Seleccione una:',
         'opciones': [
             'Identificar un riesgo, hablar de ello con los menores y luego con sus padres',
             'Identificar un riesgo, hablar con el personal al respecto y hacer cambios en la dirección',
@@ -2907,7 +3087,37 @@ preguntas_salvaguardia = [
             'El agente está abusando de su posición de poder y confianza sobre el jugador. Esto representa un problema de protección'
         ],
         'respuestas_correctas': ['Representa un caso de acoso sexual, y el jugador debería denunciarlo inmediatamente','El agente está abusando de su posición de poder y confianza sobre el jugador. Esto representa un problema de protección']
-    },                        
+    },
+    {
+        'pregunta': '¿Qué constituye un problema de salvaguardia? Seleccione una:',
+        'opciones': [
+            'Cuando se teme por la seguridad o el bienestar de una persona (sea menor o adulto)',
+            'Que un jugador joven salga con sus amigos la noche antes de un partido',
+            'Cuando usted rellena un formulario para comunicar un problema a un superior',
+            'Unas instalaciones de entrenamiento anticuadas y sin el suficiente mantenimiento'
+        ],
+        'respuestas_correctas': ['Cuando se teme por la seguridad o el bienestar de una persona (sea menor o adulto)']
+    },
+    {
+        'pregunta': 'Lucas es un jugador chileno de 17 años que quiere convertirse en profesional. Su padre, que sueña con hacerse rico, se ha puesto en contacto por Internet con un supuesto agente «muy próximo a ciertos clubes europeos», y está tan entusiasmado que le ha pagado 5000 USD sin haber visto su licencia de agente, ni documentación o acreditación alguna, a cambio de que consiga para su hijo una prueba en un importante equipo de Europa. Lucas no quiere acceder al deseo de su padre, porque no se siente preparado para marcharse a Europa a su edad, y considera que le está obligando. ¿Estamos ante un problema de salvaguardia? Seleccione una:',
+        'opciones': [
+            'Es un grave problema de salvaguardia con posibles implicaciones penales (Lucas podría estar siendo víctima de maltrato emocional, trata y explotación)',
+            'En este caso no se da ningún problema de salvaguardia, dado que el agente no está obligando al jugador a hacer nada',
+            'No es un problema de salvaguardia, ya que Lucas es menor y su padre (que es, además, su tutor legal) puede decidir qué es lo mejor para él y su futuro profesional como futbolista',
+            'El padre debería pedirle al agente su licencia o acreditación para, a continuación, cederle la tutela legal de su hijo'
+        ],
+        'respuestas_correctas': ['Es un grave problema de salvaguardia con posibles implicaciones penales (Lucas podría estar siendo víctima de maltrato emocional, trata y explotación)']
+    },
+    {
+        'pregunta': '¿Cuáles de los siguientes puntos constituyen indicios de abuso sexual infantil físicos o conductuales (según el anexo 14 de la herramienta de salvaguardia de la infancia para las federaciones miembro de la FIFA)? Seleccione una o más de una:',
+        'opciones': [
+            'El niño puede quejarse de molestias, dolor o sangrado en sus «partes íntimas»',
+            'Desconfianza al ser abordado por alguien y temor infundado a los adultos',
+            'Ninguna de las anteriores opciones',
+            'Hacer insinuaciones sexuales a adultos o a otros niños'
+        ],
+        'respuestas_correctas': ['El niño puede quejarse de molestias, dolor o sangrado en sus «partes íntimas»','Desconfianza al ser abordado por alguien y temor infundado a los adultos','Hacer insinuaciones sexuales a adultos o a otros niños']
+    },                                    
                                                                                  
 ]
 

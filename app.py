@@ -54,6 +54,11 @@ def cargar_markdown(file_path):
     except FileNotFoundError:
         return f"Error: El archivo {file_path} no se encontró."
 
+# Mostrar logotipo y mensaje introductorio solo si no se ha iniciado sesión
+if not st.session_state['sesion_iniciada']:
+    st.image(r"C:\Users\jmmar\Desktop\Plataforma-Test-FIFA\FIFA_logo_without_slogan.svg.png", width=200)  # Reemplaza "path_to_logo.png" con la ruta a tu logotipo
+    st.markdown("# Exámenes Test Oficial Agentes FIFA")
+
 # Función para calcular el resultado
 def calcular_resultado(preguntas, respuestas_usuario):
     respuestas_correctas = 0

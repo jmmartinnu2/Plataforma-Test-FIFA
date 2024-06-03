@@ -16,6 +16,10 @@ CONTRASEÑA_CORRECTA = "240683"
 # Variable para mantener el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
     st.session_state['sesion_iniciada'] = False
+    
+    
+    
+    
 
 # Función para mostrar la pantalla de inicio de sesión
 def mostrar_login():
@@ -53,10 +57,6 @@ def cargar_markdown(file_path):
             return file.read()
     except FileNotFoundError:
         return f"Error: El archivo {file_path} no se encontró."
-
-# Añadir logotipo y texto introductorio
-st.image("./C:\Users\jmmar\Desktop\Plataforma-Test-FIFA\fifa-agent-platform.svg", width=200)  # Reemplaza "path_to_logo.png" con la ruta a tu logotipo
-st.markdown("# Aplicación web para realizar test para aprobar el examen de agente FIFA")
 
 # Función para calcular el resultado
 def calcular_resultado(preguntas, respuestas_usuario):

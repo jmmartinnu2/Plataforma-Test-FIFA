@@ -11,7 +11,7 @@ import time
 import os
 
 # Contraseña correcta definida
-CONTRASEÑA_CORRECTA = "030616"
+CONTRASEÑA_CORRECTA = "151260"
 
 # Variable para mantener el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:

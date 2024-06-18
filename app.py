@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 import streamlit as st
 import pandas as pd
 from examen_fifa import preguntas_por_categoria  # Asegúrate de que este archivo está en el mismo directorio
-from auth.database import crear_tabla
 from exam.config import ExamConfig
 from exam.exam_manager import ExamManager
 from exam.reports import crear_tabla_historial, guardar_resultado_examen, obtener_historial_examenes, obtener_detalles_examen
@@ -12,7 +11,7 @@ import time
 import os
 
 # Contraseña correcta definida
-CONTRASEÑA_CORRECTA = "240683"
+CONTRASEÑA_CORRECTA = "190583"
 
 # Variable para mantener el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
@@ -48,9 +47,6 @@ if not os.path.exists('data'):
 # Establecer la configuración de la página
 st.set_page_config(page_title="Examen FIFA", layout="centered")
 
-# Crear la tabla de usuarios y la tabla de historial de exámenes
-crear_tabla()
-crear_tabla_historial()
 
 # Función para calcular el resultado
 def calcular_resultado(preguntas, respuestas_usuario):

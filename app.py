@@ -16,6 +16,10 @@ CONTRASEÑA_CORRECTA = "190583"
 # Variable para mantener el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
     st.session_state['sesion_iniciada'] = False
+    
+    
+    
+    
 
 if 'modo_prueba' not in st.session_state:
     st.session_state['modo_prueba'] = False

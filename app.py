@@ -5,7 +5,7 @@ import pandas as pd
 from examen_fifa import preguntas_por_categoria  # Asegúrate de que este archivo está en el mismo directorio
 from exam.config import ExamConfig
 from exam.exam_manager import ExamManager
-from exam.reports import crear_tabla_historial, guardar_resultado_examen, obtener_historial_examenes, obtener_detalles_examen
+from exam.reports import guardar_resultado_examen, obtener_historial_examenes, obtener_detalles_examen
 from examen_prueba import preguntas_prueba
 import time
 import os
@@ -16,10 +16,6 @@ CONTRASEÑA_CORRECTA = "190583"
 # Variable para mantener el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
     st.session_state['sesion_iniciada'] = False
-    
-    
-    
-    
 
 if 'modo_prueba' not in st.session_state:
     st.session_state['modo_prueba'] = False
@@ -159,6 +155,7 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
     <style>
         .pricing-table {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
@@ -172,6 +169,7 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
             text-align: center;
             width: 200px;
             color: white;
+            margin-bottom: 20px;
         }
         .pricing-card h2 {
             font-size: 24px;
@@ -184,6 +182,10 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
             margin: 0;
             color: #ffd700;
         }
+        .offer {
+            color: #ff0000; /* Color rojo para la oferta */
+            text-decoration: line-through; /* Texto tachado */
+        }
     </style>
     <div class="pricing-table">
         <div class="pricing-card">
@@ -192,7 +194,7 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
         </div>
         <div class="pricing-card">
             <h2>Trimestral</h2>
-            <p>65€</p>
+            <p><span class="offer">65€</span> 50€</p> <!-- Actualización de la oferta -->
         </div>
         <div class="pricing-card">
             <h2>Anual</h2>
@@ -292,9 +294,6 @@ else:
                 st.markdown("---")
 
             st.markdown(f"### Resultado final: {'APTO' if st.session_state.respuestas_correctas >= 15 else 'NO APTO'} - Aciertos: {st.session_state.respuestas_correctas}/20")
-            if st.button("Generar nuevo Examen"):
-                configurar_examen_prueba()
-                st.experimental_rerun()
 
         # Actualizar el temporizador cada segundo
         if not st.session_state.mostrar_resultados and not st.session_state.ver_correccion:
@@ -421,23 +420,13 @@ else:
                     for i, opcion in enumerate(opciones):
                         if i in correct_indices:
                             st.markdown(f"- **{opcion}** :green_heart:")
-                        elif respuestas_usuario[i] == 1:
+                        elif i < len(respuestas_usuario) and respuestas_usuario[i] == 1:
                             st.markdown(f"- ~~{opcion}~~ :red_circle:")
                         else:
                             st.markdown(f"- {opcion}")
                     st.markdown("---")
 
                 st.markdown(f"### Resultado final: {'APTO' if st.session_state.respuestas_correctas >= 15 else 'NO APTO'} - Aciertos: {st.session_state.respuestas_correctas}/20")
-                if st.button("Generar nuevo Examen"):
-                    config = st.session_state.exam_manager.config
-                    exam_manager = ExamManager(config)
-                    st.session_state.exam_manager = exam_manager
-                    st.session_state.start_time = datetime.now()  # Reset timer
-                    st.session_state.end_time = st.session_state.start_time + exam_manager.get_tiempo_limite()
-                    st.session_state.respuestas_usuario = []
-                    st.session_state.mostrar_resultados = False
-                    st.session_state.ver_correccion = False
-                    st.experimental_rerun()
 
             # Actualizar el temporizador cada segundo
             if not st.session_state.mostrar_resultados and not st.session_state.ver_correccion:

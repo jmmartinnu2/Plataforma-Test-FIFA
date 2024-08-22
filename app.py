@@ -10,22 +10,6 @@ from examen_prueba import preguntas_prueba
 import time
 import os
 
-# Añadir un banner con el icono de WhatsApp y el número de contacto
-st.markdown(
-    """
-    <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
-        <div style="background-color: #25D366; padding: 10px; border-radius: 5px; display: flex; align-items: center;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="30" style="margin-right: 10px;">
-            <a href="https://wa.me/34645764853" target="_blank" style="color: white; text-decoration: none; font-weight: bold;">
-                Contáctame en WhatsApp: +34 645 764 853
-            </a>
-        </div>
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
-
-
 # Contraseña correcta definida
 CONTRASEÑA_CORRECTA = "091086"
 
@@ -440,7 +424,7 @@ else:
                             st.markdown(f"- ~~{opcion}~~ :red_circle:")
                         else:
                             st.markdown(f"- {opcion}")
-                    st.markdown("---")
+                        st.markdown("---")
 
                 st.markdown(f"### Resultado final: {'APTO' if st.session_state.respuestas_correctas >= 15 else 'NO APTO'} - Aciertos: {st.session_state.respuestas_correctas}/20")
 
@@ -490,3 +474,21 @@ else:
                     st.info("No hay resultados detallados disponibles.")
             else:
                 st.info("Selecciona un examen del historial para ver los detalles.")
+
+# Añadir banner de contacto por WhatsApp
+st.sidebar.markdown(
+    """
+    ---
+    ### 📞 Contacta con Nosotros
+    Para más información, puedes contactarnos directamente por WhatsApp.
+    """
+)
+
+st.sidebar.markdown(
+    """
+    <a href="https://wa.me/34645764853" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" style="margin-right: 10px;"> +34 645 764 853
+    </a>
+    """,
+    unsafe_allow_html=True
+)

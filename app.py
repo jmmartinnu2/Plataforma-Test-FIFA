@@ -190,7 +190,7 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
     <div class="pricing-table">
         <div class="pricing-card">
             <h2>Mensual</h2>
-            <p>30€</p>
+            <p><span class="offer">35€</span> 25€</p> <!-- Actualización de la oferta -->
         </div>
         <div class="pricing-card">
             <h2>Trimestral</h2>

@@ -29,7 +29,7 @@ def mostrar_login():
         if st.button("Iniciar sesión"):
             if contraseña == CONTRASEÑA_CORRECTA:
                 st.session_state['sesion_iniciada'] = True
-                st.experimental_rerun()
+                st.stop()  # Detiene la ejecución en lugar de hacer rerun
             else:
                 st.error("Contraseña incorrecta. Acceso denegado.")
 

@@ -10,23 +10,26 @@ from examen_prueba import preguntas_prueba
 import time
 import os
 
-
-# Definir una contraseña correcta
+# Contraseña correcta definida
 CONTRASEÑA_CORRECTA = "091086"
 
-# Verificar el estado de la sesión
+# Variable para mantener el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
     st.session_state['sesion_iniciada'] = False
 
+if 'modo_prueba' not in st.session_state:
+    st.session_state['modo_prueba'] = False
+
+# Función para mostrar la pantalla de inicio de sesión en la barra lateral
 def mostrar_login():
     with st.sidebar:
+        st.image('./fifa-logo.jpg', width=200)
         st.title("Inicio de Sesión")
         contraseña = st.text_input("Introduce la contraseña", type="password")
         if st.button("Iniciar sesión"):
-            if contraseña == CONTRASENA_CORRECTA:
+            if contraseña == CONTRASEÑA_CORRECTA:
                 st.session_state['sesion_iniciada'] = True
-                st.success("Sesión iniciada correctamente.")
-                st.stop()
+                st.experimental_rerun()
             else:
                 st.error("Contraseña incorrecta. Acceso denegado.")
 
@@ -130,9 +133,15 @@ def configurar_examen_prueba():
     st.session_state.modo_prueba = True
     st.experimental_rerun()
 
-# Historial de preguntas usadas en los últimos dos exámenes
+# Inicializa las claves en st.session_state si no existen
+if 'sesion_iniciada' not in st.session_state:
+    st.session_state['sesion_iniciada'] = False
+
+if 'modo_prueba' not in st.session_state:
+    st.session_state['modo_prueba'] = False
+
 if 'historial_preguntas' not in st.session_state:
-    st.session_state.historial_preguntas = []
+    st.session_state['historial_preguntas'] = []
 
 # Mostrar mensaje de bienvenida y tarifas si no se ha iniciado sesión
 if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba']:
@@ -142,7 +151,7 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
         Con nuestra plataforma podrás:
         - 🌍 **Acceder a preguntas actualizadas** sobre las normativas y reglas de la FIFA.
         - ⏱️ **Simular exámenes** con tiempo límite, como en el examen real.
-        - 📊 **Más de 450 preguntas de Exámenes oficiales de FIFA.
+        - 📊 **Más de 450 preguntas de Exámenes oficiales de FIFA.**
         
         ¡Inicia sesión y comienza a practicar ahora para asegurar tu éxito como agente FIFA!
     """)

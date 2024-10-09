@@ -2,18 +2,19 @@ import random
 from datetime import datetime
 import streamlit as st
 import pandas as pd
-from examen_fifa import preguntas_por_categoria  # Asegúrate de que este archivo está en el mismo directorio
+import os
+
+# Asegúrate de que estos archivos existen y tienen las variables correctas
+from examen_fifa import preguntas_por_categoria  
 from exam.config import ExamConfig
 from exam.exam_manager import ExamManager
 from exam.reports import guardar_resultado_examen, obtener_historial_examenes, obtener_detalles_examen
 from examen_prueba import preguntas_prueba
-import time
-import os
 
 # Contraseña correcta definida
 CONTRASEÑA_CORRECTA = "091086"
 
-# Inicializa el estado de la sesión
+# Inicializar el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
     st.session_state['sesion_iniciada'] = False
 
@@ -184,8 +185,9 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
     if st.button("Hacer Prueba de Examen", key="prueba_examen"):
         configurar_examen_prueba()
 
-    mostrar_login()
+    mostrar_login()  # Asegúrate de que esta función esté correctamente definida
 else:
+    # Aquí va el resto de tu lógica para manejar el examen
     if st.session_state['modo_prueba']:
         # Crear un formulario para el examen de prueba
         if not st.session_state.mostrar_resultados and not st.session_state.ver_correccion:
@@ -261,146 +263,3 @@ else:
                 st.markdown("---")
 
             st.markdown(f"### Resultado final: {'APTO' if st.session_state.respuestas_correctas >= 15 else 'NO APTO'} - Aciertos: {st.session_state.respuestas_correctas}/20")
-
-    else:
-        # Opciones de navegación después de iniciar sesión
-        opcion = st.sidebar.selectbox("Selecciona una opción", ["Configurar Examen", "Historial de Exámenes", "Resultados Detallados"])
-
-        if opcion == "Configurar Examen":
-            # Configuración del examen
-            st.title("Configuración del Examen")
-            num_preguntas = st.number_input("Número de Preguntas", min_value=1, max_value=100, value=20)
-            tiempo_limite = st.number_input("Tiempo Límite (minutos)", min_value=1, max_value=180, value=60)
-            orden_aleatorio = st.checkbox("Orden Aleatorio de Preguntas", value=True)
-
-            temas = list(preguntas_por_categoria.keys())
-            temas_seleccionados = st.multiselect("Selecciona los temas", temas, default=temas)
-
-            config = ExamConfig(num_preguntas=num_preguntas, tiempo_limite=tiempo_limite, orden_aleatorio=orden_aleatorio)
-            exam_manager = ExamManager(config)
-
-            if st.button("Iniciar Examen"):
-                st.session_state.exam_manager = exam_manager
-                st.session_state.start_time = datetime.now()  # Start timer
-                st.session_state.end_time = st.session_state.start_time + exam_manager.get_tiempo_limite()
-                st.session_state.temas_seleccionados = temas_seleccionados
-                st.session_state.respuestas_usuario = []
-                st.session_state.mostrar_resultados = False
-                st.session_state.ver_correccion = False
-                st.session_state.feedback = []
-                st.session_state.preguntas = seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados, num_preguntas, st.session_state.historial_preguntas)
-                if st.session_state.preguntas:  # Verifica si se seleccionaron preguntas
-                    actualizar_historial_preguntas([p['pregunta'] for p in st.session_state.preguntas], num_preguntas)
-                    st.stop()  # Detiene la ejecución
-
-        if 'exam_manager' in st.session_state and st.session_state.exam_manager:
-            exam_manager = st.session_state.exam_manager
-            preguntas = st.session_state.preguntas
-
-            # Crear un espacio vacío para el temporizador
-            timer_placeholder = st.sidebar.empty()
-
-            # Llamada inicial para mostrar el temporizador
-            if not actualizar_temporizador():
-                st.stop()
-
-            # Crear un formulario para el examen
-            if not st.session_state.mostrar_resultados and not st.session_state.ver_correccion:
-                with st.form("examen"):
-                    respuestas_usuario = []
-                    submit_attempted = False
-                    for i, pregunta in enumerate(preguntas):
-                        st.markdown(f"### Pregunta {i + 1}")
-                        st.markdown(f"**{pregunta['pregunta']}**")
-                        selected_options = [st.checkbox(opt, key=f"q{i}_opt{j}") for j, opt in enumerate(pregunta['opciones'])]
-                        respuestas_usuario.append(selected_options)
-                        if submit_attempted and not any(selected_options):
-                            st.warning("Debe seleccionar al menos una opción para esta pregunta.", icon="⚠️")
-                        st.markdown("---")  # Añadir una línea divisoria entre preguntas
-
-                    submitted = st.form_submit_button("Enviar Examen")
-                    if submitted:
-                        submit_attempted = True
-
-                # Validar las respuestas del usuario
-                if submitted:
-                    sin_responder = [i + 1 for i, options in enumerate(respuestas_usuario) if not any(options)]
-                    if sin_responder:
-                        st.warning("Debe seleccionar al menos una opción para cada pregunta.", icon="⚠️")
-                    else:
-                        st.session_state.respuestas_usuario = respuestas_usuario
-                        respuestas_usuario = [[1 if opt else 0 for opt in q] for q in respuestas_usuario]
-                        respuestas_correctas, resultados, feedback = calcular_resultado(preguntas, respuestas_usuario)
-                        st.session_state.respuestas_correctas = respuestas_correctas
-                        st.session_state.resultados = resultados
-                        st.session_state.feedback = feedback
-                        st.session_state.mostrar_resultados = True
-                        guardar_resultado_examen(
-                            0,  # Asignar un id por defecto ya que no hay usuario
-                            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                            'APTO' if respuestas_correctas >= 15 else 'NO APTO',
-                            respuestas_correctas,
-                            len(preguntas),
-                            resultados
-                        )
-                        st.stop()  # Detiene la ejecución
-
-            elif st.session_state.mostrar_resultados:
-                # Mostrar resultado general
-                if st.session_state.respuestas_correctas >= 15:
-                    st.markdown(
-                        f"""
-                        <div style='text-align: center; color: green;'>
-                            <h2>🎉 ¡APTO! - Aciertos: {st.session_state.respuestas_correctas}/20</h2>
-                            <p>¡Enhorabuena! Eres Agente FIFA</p>
-                        </div>
-                        """, 
-                        unsafe_allow_html=True
-                    )
-                else:
-                    st.markdown(
-                        f"""
-                        <div style='text-align: center; color: red;'>
-                            <h2>❌ NO APTO - Aciertos: {st.session_state.respuestas_correctas}/20</h2>
-                            <p>Sigue practicando, ¡lo conseguirás!</p>
-                        </div>
-                        """, 
-                        unsafe_allow_html=True
-                    )
-                if st.button("Ver corrección"):
-                    st.session_state.ver_correccion = True
-                    st.stop()  # Detiene la ejecución
-
-            # Mostrar corrección detallada
-            if st.session_state.ver_correccion:
-                st.markdown("## Resultados del Examen")
-                for idx, (pregunta, opciones, correct_indices, respuestas_usuario, es_correcta) in enumerate(st.session_state.resultados):
-                    st.markdown(f"### Pregunta {idx + 1}: {pregunta}")
-                    for i, opcion in enumerate(opciones):
-                        if i in correct_indices:
-                            st.markdown(f"- **{opcion}** :green_heart:")
-                        elif respuestas_usuario[i] == 1:
-                            st.markdown(f"- ~~{opcion}~~ :red_circle:")
-                        else:
-                            st.markdown(f"- {opcion}")
-                    st.markdown("---")
-
-                st.markdown(f"### Resultado final: {'APTO' if st.session_state.respuestas_correctas >= 15 else 'NO APTO'} - Aciertos: {st.session_state.respuestas_correctas}/20")
-
-# Añadir banner de contacto por WhatsApp
-st.sidebar.markdown(
-    """
-    ---
-    ### 📞 Contacta con Nosotros
-    Para más información, puedes contactarnos directamente por WhatsApp.
-    """
-)
-
-st.sidebar.markdown(
-    """
-    <a href="https://wa.me/34645764853" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" style="margin-right: 10px;"> +34 645 764 853
-    </a>
-    """,
-    unsafe_allow_html=True
-)

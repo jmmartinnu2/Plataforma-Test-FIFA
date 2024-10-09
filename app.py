@@ -8,30 +8,41 @@ from exam.exam_manager import ExamManager
 from exam.reports import guardar_resultado_examen, obtener_historial_examenes, obtener_detalles_examen
 from examen_prueba import preguntas_prueba
 import time
+import random
+import streamlit as st
+import pandas as pd
 import os
 
-# Contraseña correcta definida
-CONTRASEÑA_CORRECTA = "091086"
-
-# Variable para mantener el estado de la sesión
+# Inicializar el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
     st.session_state['sesion_iniciada'] = False
-
 if 'modo_prueba' not in st.session_state:
     st.session_state['modo_prueba'] = False
+if 'historial_preguntas' not in st.session_state:
+    st.session_state['historial_preguntas'] = []
 
-# Función para mostrar la pantalla de inicio de sesión en la barra lateral
+# Contraseña correcta
+CONTRASEÑA_CORRECTA = "091086"
+
 def mostrar_login():
     with st.sidebar:
-        st.image('./fifa-logo.jpg', width=200)
         st.title("Inicio de Sesión")
         contraseña = st.text_input("Introduce la contraseña", type="password")
         if st.button("Iniciar sesión"):
             if contraseña == CONTRASEÑA_CORRECTA:
                 st.session_state['sesion_iniciada'] = True
-                st.experimental_rerun()
+                st.success("Sesión iniciada correctamente.")
+                st.stop()  # Cambiado a stop
             else:
                 st.error("Contraseña incorrecta. Acceso denegado.")
+
+# Verifica si el usuario está conectado
+if not st.session_state['sesion_iniciada']:
+    mostrar_login()
+else:
+    st.title("Bienvenido a la aplicación de Examen FIFA")
+    # Resto de tu código para la aplicación
+
 
 # Función para inicializar o resetear la sesión
 def iniciar_sesion():

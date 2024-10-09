@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 altair==5.4.1
 attrs==24.2.0
 blinker==1.8.2
@@ -41,7 +41,6 @@ typing_extensions==4.12.2
 tzdata==2024.2
 urllib3==2.2.3
 watchdog==5.0.3
-=======
 streamlit==1.24.1
 pandas==1.5.3
->>>>>>> 9d332fd22da04ae8f935a949c205441a37a3520d
+

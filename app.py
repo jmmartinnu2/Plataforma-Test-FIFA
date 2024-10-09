@@ -13,6 +13,7 @@ import streamlit as st
 import pandas as pd
 import os
 
+
 # Inicializar el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
     st.session_state['sesion_iniciada'] = False
@@ -42,6 +43,7 @@ if not st.session_state['sesion_iniciada']:
 else:
     st.title("Bienvenido a la aplicación de Examen FIFA")
     # Resto de tu código para la aplicación
+
 
 
 # Función para inicializar o resetear la sesión

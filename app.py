@@ -1,5 +1,5 @@
 import random
-from datetime import datetime, timedelta
+from datetime import datetime
 import streamlit as st
 import pandas as pd
 from examen_fifa import preguntas_por_categoria  # Asegúrate de que este archivo está en el mismo directorio
@@ -13,12 +13,22 @@ import os
 # Contraseña correcta definida
 CONTRASEÑA_CORRECTA = "091086"
 
-# Variable para mantener el estado de la sesión
+# Inicializa el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
     st.session_state['sesion_iniciada'] = False
 
 if 'modo_prueba' not in st.session_state:
     st.session_state['modo_prueba'] = False
+
+if 'historial_preguntas' not in st.session_state:
+    st.session_state['historial_preguntas'] = []
+
+# Crear el directorio data si no existe
+if not os.path.exists('data'):
+    os.makedirs('data')
+
+# Establecer la configuración de la página
+st.set_page_config(page_title="Examen FIFA", layout="centered")
 
 # Función para mostrar la pantalla de inicio de sesión en la barra lateral
 def mostrar_login():
@@ -29,24 +39,10 @@ def mostrar_login():
         if st.button("Iniciar sesión"):
             if contraseña == CONTRASEÑA_CORRECTA:
                 st.session_state['sesion_iniciada'] = True
-                st.experimental_rerun()
+                st.success("Sesión iniciada correctamente.")
+                st.stop()  # Detiene la ejecución
             else:
                 st.error("Contraseña incorrecta. Acceso denegado.")
-
-# Función para inicializar o resetear la sesión
-def iniciar_sesion():
-    return {
-        'preguntas': [],
-        'realizado_test': False,
-    }
-
-# Crear el directorio data si no existe
-if not os.path.exists('data'):
-    os.makedirs('data')
-
-# Establecer la configuración de la página
-st.set_page_config(page_title="Examen FIFA", layout="centered")
-
 
 # Función para calcular el resultado
 def calcular_resultado(preguntas, respuestas_usuario):
@@ -57,7 +53,7 @@ def calcular_resultado(preguntas, respuestas_usuario):
         try:
             correct_indices = [pregunta['opciones'].index(resp) for resp in pregunta['respuestas_correctas']]
         except ValueError as e:
-            st.error(f"Error en la pregunta {i+1}: {str(e)}")
+            st.error(f"Error en la pregunta {i + 1}: {str(e)}")
             continue
         es_correcta = respuestas_usuario[i] == [1 if idx in correct_indices else 0 for idx in range(len(pregunta['opciones']))]
         if es_correcta:
@@ -98,21 +94,6 @@ def actualizar_historial_preguntas(nuevas_preguntas, num_preguntas):
     if len(st.session_state.historial_preguntas) > 2 * num_preguntas:
         st.session_state.historial_preguntas = st.session_state.historial_preguntas[-2 * num_preguntas:]
 
-# Función para actualizar el temporizador
-def actualizar_temporizador():
-    now = datetime.now()
-    remaining_time = st.session_state.end_time - now
-
-    if remaining_time.total_seconds() > 0:
-        minutes, seconds = divmod(remaining_time.total_seconds(), 60)
-        timer_placeholder.info(f"Tiempo restante: {int(minutes):02}:{int(seconds):02}")
-        if minutes < 5:  # Recordatorio si quedan menos de 5 minutos
-            st.warning("Quedan menos de 5 minutos.")
-        return True
-    else:
-        timer_placeholder.warning("Tiempo terminado")
-        return False
-
 # Función para configurar el examen de prueba
 def configurar_examen_prueba():
     if len(preguntas_prueba) < 20:
@@ -131,11 +112,7 @@ def configurar_examen_prueba():
     st.session_state.feedback = []
     st.session_state.preguntas = random.sample(preguntas_prueba, 20)  # Seleccionar 20 preguntas aleatorias
     st.session_state.modo_prueba = True
-    st.experimental_rerun()
-
-# Historial de preguntas usadas en los últimos dos exámenes
-if 'historial_preguntas' not in st.session_state:
-    st.session_state.historial_preguntas = []
+    st.stop()  # Detiene la ejecución
 
 # Mostrar mensaje de bienvenida y tarifas si no se ha iniciado sesión
 if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba']:
@@ -145,7 +122,7 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
         Con nuestra plataforma podrás:
         - 🌍 **Acceder a preguntas actualizadas** sobre las normativas y reglas de la FIFA.
         - ⏱️ **Simular exámenes** con tiempo límite, como en el examen real.
-        - 📊 **Más de 450 preguntas de Exámenes oficiales de FIFA.
+        - 📊 **Más de 450 preguntas de Exámenes oficiales de FIFA.**
         
         ¡Inicia sesión y comienza a practicar ahora para asegurar tu éxito como agente FIFA!
     """)
@@ -190,11 +167,11 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
     <div class="pricing-table">
         <div class="pricing-card">
             <h2>Mensual</h2>
-            <p>35€</p> <!-- Actualización de la oferta -->
+            <p>35€</p>
         </div>
         <div class="pricing-card">
             <h2>Trimestral</h2>
-            <p><span class="offer">70€</span> 50€</p> <!-- Actualización de la oferta -->
+            <p><span class="offer">70€</span> 50€</p>
         </div>
         <div class="pricing-card">
             <h2>Anual</h2>
@@ -203,9 +180,6 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
     </div>
     """, unsafe_allow_html=True)
 
-    # Añadir un salto de línea antes del botón
-    st.write("")
-
     # Botón para hacer la prueba de examen
     if st.button("Hacer Prueba de Examen", key="prueba_examen"):
         configurar_examen_prueba()
@@ -213,20 +187,13 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
     mostrar_login()
 else:
     if st.session_state['modo_prueba']:
-        # Crear un espacio vacío para el temporizador
-        timer_placeholder = st.sidebar.empty()
-
-        # Llamada inicial para mostrar el temporizador
-        if not actualizar_temporizador():
-            st.stop()
-
         # Crear un formulario para el examen de prueba
         if not st.session_state.mostrar_resultados and not st.session_state.ver_correccion:
             with st.form("examen_prueba"):
                 respuestas_usuario = []
                 submit_attempted = False
                 for i, pregunta in enumerate(st.session_state.preguntas):
-                    st.markdown(f"### Pregunta {i+1}")
+                    st.markdown(f"### Pregunta {i + 1}")
                     st.markdown(f"**{pregunta['pregunta']}**")
                     selected_options = [st.checkbox(opt, key=f"q{i}_opt{j}") for j, opt in enumerate(pregunta['opciones'])]
                     respuestas_usuario.append(selected_options)
@@ -251,7 +218,7 @@ else:
                     st.session_state.resultados = resultados
                     st.session_state.feedback = feedback
                     st.session_state.mostrar_resultados = True
-                    st.experimental_rerun()
+                    st.stop()  # Detiene la ejecución
 
         elif st.session_state.mostrar_resultados:
             # Mostrar resultado general
@@ -277,13 +244,13 @@ else:
                 )
             if st.button("Ver corrección"):
                 st.session_state.ver_correccion = True
-                st.experimental_rerun()
+                st.stop()  # Detiene la ejecución
 
         # Mostrar corrección detallada
         if st.session_state.ver_correccion:
             st.markdown("## Resultados del Examen")
             for idx, (pregunta, opciones, correct_indices, respuestas_usuario, es_correcta) in enumerate(st.session_state.resultados):
-                st.markdown(f"### Pregunta {idx+1}: {pregunta}")
+                st.markdown(f"### Pregunta {idx + 1}: {pregunta}")
                 for i, opcion in enumerate(opciones):
                     if i in correct_indices:
                         st.markdown(f"- **{opcion}** :green_heart:")
@@ -294,14 +261,6 @@ else:
                 st.markdown("---")
 
             st.markdown(f"### Resultado final: {'APTO' if st.session_state.respuestas_correctas >= 15 else 'NO APTO'} - Aciertos: {st.session_state.respuestas_correctas}/20")
-
-        # Actualizar el temporizador cada segundo
-        if not st.session_state.mostrar_resultados and not st.session_state.ver_correccion:
-            while True:
-                if not actualizar_temporizador():
-                    break
-                time.sleep(1)
-                st.experimental_rerun()
 
     else:
         # Opciones de navegación después de iniciar sesión
@@ -332,7 +291,7 @@ else:
                 st.session_state.preguntas = seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados, num_preguntas, st.session_state.historial_preguntas)
                 if st.session_state.preguntas:  # Verifica si se seleccionaron preguntas
                     actualizar_historial_preguntas([p['pregunta'] for p in st.session_state.preguntas], num_preguntas)
-                    st.experimental_rerun()
+                    st.stop()  # Detiene la ejecución
 
         if 'exam_manager' in st.session_state and st.session_state.exam_manager:
             exam_manager = st.session_state.exam_manager
@@ -351,7 +310,7 @@ else:
                     respuestas_usuario = []
                     submit_attempted = False
                     for i, pregunta in enumerate(preguntas):
-                        st.markdown(f"### Pregunta {i+1}")
+                        st.markdown(f"### Pregunta {i + 1}")
                         st.markdown(f"**{pregunta['pregunta']}**")
                         selected_options = [st.checkbox(opt, key=f"q{i}_opt{j}") for j, opt in enumerate(pregunta['opciones'])]
                         respuestas_usuario.append(selected_options)
@@ -384,7 +343,7 @@ else:
                             len(preguntas),
                             resultados
                         )
-                        st.experimental_rerun()
+                        st.stop()  # Detiene la ejecución
 
             elif st.session_state.mostrar_resultados:
                 # Mostrar resultado general
@@ -410,70 +369,23 @@ else:
                     )
                 if st.button("Ver corrección"):
                     st.session_state.ver_correccion = True
-                    st.experimental_rerun()
+                    st.stop()  # Detiene la ejecución
 
             # Mostrar corrección detallada
             if st.session_state.ver_correccion:
                 st.markdown("## Resultados del Examen")
                 for idx, (pregunta, opciones, correct_indices, respuestas_usuario, es_correcta) in enumerate(st.session_state.resultados):
-                    st.markdown(f"### Pregunta {idx+1}: {pregunta}")
+                    st.markdown(f"### Pregunta {idx + 1}: {pregunta}")
                     for i, opcion in enumerate(opciones):
                         if i in correct_indices:
                             st.markdown(f"- **{opcion}** :green_heart:")
-                        elif i < len(respuestas_usuario) and respuestas_usuario[i] == 1:
+                        elif respuestas_usuario[i] == 1:
                             st.markdown(f"- ~~{opcion}~~ :red_circle:")
                         else:
                             st.markdown(f"- {opcion}")
-                        st.markdown("---")
+                    st.markdown("---")
 
                 st.markdown(f"### Resultado final: {'APTO' if st.session_state.respuestas_correctas >= 15 else 'NO APTO'} - Aciertos: {st.session_state.respuestas_correctas}/20")
-
-            # Actualizar el temporizador cada segundo
-            if not st.session_state.mostrar_resultados and not st.session_state.ver_correccion:
-                while True:
-                    if not actualizar_temporizador():
-                        break
-                    time.sleep(1)
-                    st.experimental_rerun()
-
-        if opcion == "Historial de Exámenes":
-            st.title("Historial de Exámenes")
-            historial = obtener_historial_examenes(0)  # Usar 0 como id por defecto para el historial
-            if historial:
-                df_historial = pd.DataFrame(historial, columns=["ID", "Usuario ID", "Fecha", "Resultado", "Aciertos", "Total Preguntas"])
-                st.dataframe(df_historial)
-                st.download_button(
-                    "Descargar como CSV",
-                    data=df_historial.to_csv(index=False).encode('utf-8'),
-                    file_name="historial_examenes.csv",
-                    mime="text/csv"
-                )
-
-                examen_id = st.selectbox("Selecciona un examen para ver los detalles", df_historial["ID"].tolist())
-                if st.button("Ver Detalles"):
-                    st.session_state.examen_id = examen_id
-                    st.experimental_rerun()
-
-        if opcion == "Resultados Detallados" or ('examen_id' in st.session_state and st.session_state.examen_id):
-            st.title("Resultados Detallados")
-            if 'examen_id' in st.session_state:
-                detalles = obtener_detalles_examen(st.session_state.examen_id)
-                if detalles:
-                    for idx, detalle in enumerate(detalles):
-                        pregunta, opciones, correct_indices, respuestas_usuario, es_correcta = detalle[2], detalle[3].split(','), list(map(int, detalle[4].split(','))), list(map(int, detalle[5].split(','))), detalle[6]
-                        st.markdown(f"### Pregunta {idx+1}: {pregunta}")
-                        for i, opcion in enumerate(opciones):
-                            if i in correct_indices:
-                                st.markdown(f"- **{opcion}** :green_heart:")
-                            elif i < len(respuestas_usuario) and respuestas_usuario[i] == 1:
-                                st.markdown(f"- ~~{opcion}~~ :red_circle:")
-                            else:
-                                st.markdown(f"- {opcion}")
-                        st.markdown("---")
-                else:
-                    st.info("No hay resultados detallados disponibles.")
-            else:
-                st.info("Selecciona un examen del historial para ver los detalles.")
 
 # Añadir banner de contacto por WhatsApp
 st.sidebar.markdown(

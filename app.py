@@ -10,26 +10,21 @@ from examen_prueba import preguntas_prueba
 import time
 import os
 
-# Contraseña correcta definida
+
+# Definir una contraseña correcta
 CONTRASEÑA_CORRECTA = "091086"
 
-# Variable para mantener el estado de la sesión
+# Verificar el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
     st.session_state['sesion_iniciada'] = False
 
-if 'modo_prueba' not in st.session_state:
-    st.session_state['modo_prueba'] = False
-
-# Función para mostrar la pantalla de inicio de sesión en la barra lateral
 def mostrar_login():
     with st.sidebar:
-        st.image('./fifa-logo.jpg', width=200)
         st.title("Inicio de Sesión")
         contraseña = st.text_input("Introduce la contraseña", type="password")
         if st.button("Iniciar sesión"):
-            if contraseña == CONTRASEÑA_CORRECTA:
+            if contraseña == CONTRASENA_CORRECTA:
                 st.session_state['sesion_iniciada'] = True
-                # No usar st.experimental_rerun(), solo detener la ejecución
                 st.success("Sesión iniciada correctamente.")
                 st.stop()
             else:

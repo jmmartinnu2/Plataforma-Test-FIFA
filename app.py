@@ -251,8 +251,8 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
     """, unsafe_allow_html=True)
 
     # Botón para hacer la prueba de examen
-    if st.button("📝 Hacer Prueba de Examen", key="prueba_examen"):
-        configurar_examen_prueba()
+    #if st.button("📝 Hacer Prueba de Examen", key="prueba_examen"):
+        #configurar_examen_prueba()
 
     # Mostrar la pantalla de inicio de sesión
     mostrar_login()

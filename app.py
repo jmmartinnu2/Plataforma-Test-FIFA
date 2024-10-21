@@ -122,20 +122,23 @@ def actualizar_historial_preguntas(nuevas_preguntas, num_preguntas):
     if len(st.session_state['historial_preguntas']) > 2 * num_preguntas:
         st.session_state['historial_preguntas'] = st.session_state['historial_preguntas'][-2 * num_preguntas:]
 
-# **9. Función para Actualizar el Temporizador**
-def actualizar_temporizador(timer_placeholder):
+def actualizar_temporizador():
     now = datetime.now()
     remaining_time = st.session_state['end_time'] - now
 
     if remaining_time.total_seconds() > 0:
         minutes, seconds = divmod(int(remaining_time.total_seconds()), 60)
-        timer_placeholder.info(f"⏳ Tiempo restante: {minutes:02}:{seconds:02}")
+        st.sidebar.info(f"⏳ Tiempo restante: {minutes:02d}:{seconds:02d}")
         if minutes < 5:
-            timer_placeholder.warning("⚠️ Quedan menos de 5 minutos.")
-        return True
+            st.sidebar.warning("⚠️ Quedan menos de 5 minutos.")
+        # Refrescar la aplicación después de 1 segundo
+        time.sleep(1)
+        rerun_app()
     else:
-        timer_placeholder.warning("⏰ Tiempo terminado")
-        return False
+        st.sidebar.warning("⏰ Tiempo terminado")
+        st.session_state['exam_started'] = False
+        st.session_state['mostrar_resultados'] = True
+        rerun_app()
 
 # **10. Función para Configurar el Examen de Prueba**
 def configurar_examen_prueba():

@@ -1,4 +1,3 @@
-
 import random
 from datetime import datetime, timedelta
 import streamlit as st
@@ -9,15 +8,16 @@ from exam.exam_manager import ExamManager
 from exam.reports import guardar_resultado_examen, obtener_historial_examenes, obtener_detalles_examen
 from examen_prueba import preguntas_prueba
 import os
+from streamlit import st_autorefresh  # Importar st_autorefresh
 
-# **1. Configuración de la Página (Debe ser el Primer Comando de Streamlit)**
+# **1. Configuración de la Página**
 st.set_page_config(page_title="Examen FIFA", layout="centered")
 
 # **2. Mostrar la Versión de Streamlit (Opcional)**
 st.write(f"📦 **Versión de Streamlit:** {st.__version__}")
 
 # **3. Definir Constantes y Inicializar el Estado de la Sesión**
-CONTRASEÑA_CORRECTA = "241910"
+CONTRASEÑA_CORRECTA = "091086"
 
 # Inicializar el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:
@@ -102,7 +102,7 @@ def seleccionar_preguntas_por_temas(preguntas_por_categoria, temas_seleccionados
     else:
         for tema in temas_seleccionados:
             todas_las_preguntas.extend(preguntas_por_categoria[tema])
-    
+
     # Excluir preguntas que han sido usadas en los últimos dos exámenes
     preguntas_disponibles = [p for p in todas_las_preguntas if p['pregunta'] not in historial_preguntas]
 
@@ -136,6 +136,7 @@ def actualizar_temporizador(timer_placeholder):
         return True
     else:
         timer_placeholder.warning("⏰ Tiempo terminado")
+        st.session_state['mostrar_resultados'] = True  # Marcar el examen como terminado
         return False
 
 # **10. Función para Configurar el Examen de Prueba**
@@ -250,10 +251,6 @@ if not st.session_state['sesion_iniciada'] and not st.session_state['modo_prueba
     </div>
     """, unsafe_allow_html=True)
 
-    # Botón para hacer la prueba de examen
-    #if st.button("📝 Hacer Prueba de Examen", key="prueba_examen"):
-        #configurar_examen_prueba()
-
     # Mostrar la pantalla de inicio de sesión
     mostrar_login()
 
@@ -263,9 +260,12 @@ else:
         # Crear un espacio vacío para el temporizador
         timer_placeholder = st.sidebar.empty()
 
-        # Mostrar el temporizador
+        # Actualizar el temporizador
         if not actualizar_temporizador(timer_placeholder):
             st.stop()
+
+        # Añadir st_autorefresh para actualizar la aplicación cada segundo
+        st_autorefresh(interval=1000, key="timer_autorefresh")
 
         # Crear un formulario para el examen de prueba
         if not st.session_state['mostrar_resultados'] and not st.session_state['ver_correccion']:
@@ -339,8 +339,7 @@ else:
 
         st.markdown(f"### Resultado final: {'✅ APTO' if st.session_state['respuestas_correctas'] >= 15 else '❌ NO APTO'} - Aciertos: {st.session_state['respuestas_correctas']}/20")
         
-        # **Agregar el Botón "Iniciar Examen" Aquí**
-        if st.button("🚀 Iniciar Examen", key="boton_iniciar_examen_correcion_final"):
+        if st.button("🚀 Iniciar Nuevo Examen", key="boton_iniciar_examen_correcion_final"):
             # Reiniciar las variables necesarias en st.session_state
             st.session_state['mostrar_resultados'] = False
             st.session_state['ver_correccion'] = False
@@ -350,9 +349,9 @@ else:
             st.session_state['respuestas_correctas'] = 0
             st.session_state['resultados'] = []
             st.session_state['feedback'] = []
-            st.session_state['modo_prueba'] = False  # Opcional: si deseas salir del modo de prueba
+            st.session_state['modo_prueba'] = False
 
-            rerun_app()  # Actualizar la interfaz para reflejar los cambios
+            rerun_app()
 
     else:
         # Si no está en modo de prueba y no hay examen activo
@@ -383,9 +382,12 @@ else:
             # Crear un espacio vacío para el temporizador
             timer_placeholder = st.sidebar.empty()
 
-            # Mostrar el temporizador
+            # Actualizar el temporizador
             if not actualizar_temporizador(timer_placeholder):
                 st.stop()
+
+            # Añadir st_autorefresh para actualizar la aplicación cada segundo
+            st_autorefresh(interval=1000, key="timer_autorefresh")
 
             # Crear un formulario para el examen
             if not st.session_state['mostrar_resultados'] and not st.session_state['ver_correccion']:
@@ -428,7 +430,7 @@ else:
                 st.markdown(
                     f"""
                     <div style='text-align: center; color: green;'>
-                        <h2>🎉 ¡APTO! - Aciertos: {st.session_state['respuestas_correctas']}/20</h2>
+                        <h2>🎉 ¡APTO! - Aciertos: {st.session_state['respuestas_correctas']}/{len(st.session_state['preguntas'])}</h2>
                         <p>¡Enhorabuena! Eres Agente FIFA</p>
                     </div>
                     """, 
@@ -438,7 +440,7 @@ else:
                 st.markdown(
                     f"""
                     <div style='text-align: center; color: red;'>
-                        <h2>❌ NO APTO - Aciertos: {st.session_state['respuestas_correctas']}/20</h2>
+                        <h2>❌ NO APTO - Aciertos: {st.session_state['respuestas_correctas']}/{len(st.session_state['preguntas'])}</h2>
                         <p>Sigue practicando, ¡lo conseguirás!</p>
                     </div>
                     """, 
@@ -449,7 +451,7 @@ else:
                 rerun_app()
 
     # Mostrar corrección detallada
-    if st.session_state.get('ver_correccion_button_main', False):
+    if st.session_state.get('ver_correccion', False):
         st.markdown("## 📑 Resultados del Examen")
         for idx, (pregunta, opciones, correct_indices, respuestas_usuario, es_correcta) in enumerate(st.session_state['resultados']):
             st.markdown(f"### Pregunta {idx + 1}: {pregunta}")
@@ -462,22 +464,21 @@ else:
                     st.markdown(f"- {opcion}")
             st.markdown("---")
 
-        st.markdown(f"### Resultado final: {'✅ APTO' if st.session_state['respuestas_correctas'] >= 15 else '❌ NO APTO'} - Aciertos: {st.session_state['respuestas_correctas']}/20")
+        st.markdown(f"### Resultado final: {'✅ APTO' if st.session_state['respuestas_correctas'] >= 15 else '❌ NO APTO'} - Aciertos: {st.session_state['respuestas_correctas']}/{len(st.session_state['preguntas'])}")
         
-        # **Agregar el Botón "Iniciar Examen" Aquí**
-        
-        # Reiniciar las variables necesarias en st.session_state
-        st.session_state['mostrar_resultados'] = False
-        st.session_state['ver_correccion'] = False
-        st.session_state['exam_manager'] = None
-        st.session_state['preguntas'] = []
-        st.session_state['respuestas_usuario'] = []
-        st.session_state['respuestas_correctas'] = 0
-        st.session_state['resultados'] = []
-        st.session_state['feedback'] = []
-        st.session_state['modo_prueba'] = False  # Opcional: si deseas salir del modo de prueba
+        if st.button("🚀 Iniciar Nuevo Examen", key="boton_iniciar_examen_correcion_final"):
+            # Reiniciar las variables necesarias en st.session_state
+            st.session_state['mostrar_resultados'] = False
+            st.session_state['ver_correccion'] = False
+            st.session_state['exam_manager'] = None
+            st.session_state['preguntas'] = []
+            st.session_state['respuestas_usuario'] = []
+            st.session_state['respuestas_correctas'] = 0
+            st.session_state['resultados'] = []
+            st.session_state['feedback'] = []
+            st.session_state['modo_prueba'] = False
 
-        rerun_app()  # Actualizar la interfaz para reflejar los cambios
+            rerun_app()
 
     # **14. Añadir Banner de Contacto por WhatsApp**
     st.sidebar.markdown(
@@ -496,4 +497,3 @@ else:
         """,
         unsafe_allow_html=True
     )
-

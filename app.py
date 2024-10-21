@@ -42,12 +42,9 @@ if 'resultados' not in st.session_state:
 if 'feedback' not in st.session_state:
     st.session_state['feedback'] = []
 
+# Inicializar 'exam_manager' si es necesario
 if 'exam_manager' not in st.session_state:
     st.session_state['exam_manager'] = None
-
-# **Agregar la inicialización de 'exam_started' aquí**
-if 'exam_started' not in st.session_state:
-    st.session_state['exam_started'] = False
 
 # Crear el directorio data si no existe
 if not os.path.exists('data'):
@@ -267,18 +264,6 @@ else:
         # Mostrar el temporizador
         if not actualizar_temporizador(timer_placeholder):
             st.stop()
-
-    # Botón para iniciar el examen
-    if not st.session_state['exam_started']:
-        if st.button("🚀 Iniciar Examen"):
-            iniciar_examen()
-
-    # Mostrar el temporizador si el examen ha comenzado
-    if st.session_state['exam_started']:
-        timer_placeholder = st.empty()
-        while actualizar_temporizador(timer_placeholder):
-            time.sleep(1)  # Pausa de 1 segundo para actualizar el temporizador
-            rerun_app()  # Refrescar la interfaz en cada segundo
 
         # Crear un formulario para el examen de prueba
         if not st.session_state['mostrar_resultados'] and not st.session_state['ver_correccion']:

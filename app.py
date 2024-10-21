@@ -1,19 +1,18 @@
 import random
-from datetime import datetime, timedelta
+from datetime import datetime
 import streamlit as st
 import pandas as pd
 from examen_fifa import preguntas_por_categoria  # Asegúrate de que este archivo está en el mismo directorio
 from exam.config import ExamConfig
 from exam.exam_manager import ExamManager
-from exam.reports import guardar_resultado_examen, obtener_historial_examenes, obtener_detalles_examen
+from exam.reports import guardar_resultado_examen, obtener_detalles_examen
 from examen_prueba import preguntas_prueba
 import os
 
 # **1. Configuración de la Página**
 st.set_page_config(page_title="Examen FIFA", layout="centered")
 
-# **2. Mostrar la Versión de Streamlit (Opcional)**
-st.write(f"📦 **Versión de Streamlit:** {st.__version__}")
+
 
 # **3. Definir Constantes y Inicializar el Estado de la Sesión**
 CONTRASEÑA_CORRECTA = "241910"

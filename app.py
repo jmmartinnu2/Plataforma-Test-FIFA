@@ -17,7 +17,7 @@ st.set_page_config(page_title="Examen FIFA", layout="centered")
 st.write(f"📦 **Versión de Streamlit:** {st.__version__}")
 
 # **3. Definir Constantes y Inicializar el Estado de la Sesión**
-CONTRASEÑA_CORRECTA = "!_)y)4}!452B"
+CONTRASEÑA_CORRECTA = "241910"
 
 # Inicializar el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:

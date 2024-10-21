@@ -8,6 +8,7 @@ from exam.exam_manager import ExamManager
 from exam.reports import guardar_resultado_examen, obtener_detalles_examen
 from examen_prueba import preguntas_prueba
 import os
+import time
 
 # **1. Configuración de la Página**
 st.set_page_config(page_title="Examen FIFA", layout="centered")

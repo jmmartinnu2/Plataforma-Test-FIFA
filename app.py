@@ -56,7 +56,7 @@ def rerun_app():
     try:
         st.rerun()
     except AttributeError:
-        st.rerun()
+        st.experimental_rerun()
 
 # **5. Función para Mostrar la Pantalla de Inicio de Sesión en la Barra Lateral**
 def mostrar_login():
@@ -122,23 +122,20 @@ def actualizar_historial_preguntas(nuevas_preguntas, num_preguntas):
     if len(st.session_state['historial_preguntas']) > 2 * num_preguntas:
         st.session_state['historial_preguntas'] = st.session_state['historial_preguntas'][-2 * num_preguntas:]
 
-def actualizar_temporizador():
+# **9. Función para Actualizar el Temporizador**
+def actualizar_temporizador(timer_placeholder):
     now = datetime.now()
     remaining_time = st.session_state['end_time'] - now
 
     if remaining_time.total_seconds() > 0:
         minutes, seconds = divmod(int(remaining_time.total_seconds()), 60)
-        st.sidebar.info(f"⏳ Tiempo restante: {minutes:02d}:{seconds:02d}")
+        timer_placeholder.info(f"⏳ Tiempo restante: {minutes:02}:{seconds:02}")
         if minutes < 5:
-            st.sidebar.warning("⚠️ Quedan menos de 5 minutos.")
-        # Refrescar la aplicación después de 1 segundo
-        time.sleep(1)
-        rerun_app()
+            timer_placeholder.warning("⚠️ Quedan menos de 5 minutos.")
+        return True
     else:
-        st.sidebar.warning("⏰ Tiempo terminado")
-        st.session_state['exam_started'] = False
-        st.session_state['mostrar_resultados'] = True
-        rerun_app()
+        timer_placeholder.warning("⏰ Tiempo terminado")
+        return False
 
 # **10. Función para Configurar el Examen de Prueba**
 def configurar_examen_prueba():

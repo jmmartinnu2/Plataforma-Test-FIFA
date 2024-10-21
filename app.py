@@ -265,6 +265,18 @@ else:
         if not actualizar_temporizador(timer_placeholder):
             st.stop()
 
+    # Botón para iniciar el examen
+    if not st.session_state['exam_started']:
+        if st.button("🚀 Iniciar Examen"):
+            iniciar_examen()
+
+    # Mostrar el temporizador si el examen ha comenzado
+    if st.session_state['exam_started']:
+        timer_placeholder = st.empty()
+        while actualizar_temporizador(timer_placeholder):
+            time.sleep(1)  # Pausa de 1 segundo para actualizar el temporizador
+            rerun_app()  # Refrescar la interfaz en cada segundo
+
         # Crear un formulario para el examen de prueba
         if not st.session_state['mostrar_resultados'] and not st.session_state['ver_correccion']:
             with st.form("examen_prueba"):

@@ -42,9 +42,12 @@ if 'resultados' not in st.session_state:
 if 'feedback' not in st.session_state:
     st.session_state['feedback'] = []
 
-# Inicializar 'exam_manager' si es necesario
 if 'exam_manager' not in st.session_state:
     st.session_state['exam_manager'] = None
+
+# **Agregar la inicialización de 'exam_started' aquí**
+if 'exam_started' not in st.session_state:
+    st.session_state['exam_started'] = False
 
 # Crear el directorio data si no existe
 if not os.path.exists('data'):

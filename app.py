@@ -40,7 +40,7 @@ preguntas_por_categoria = {
 preguntas_prueba = preguntas_por_categoria["Reglas Básicas"]  # Simplificación para el ejemplo
 
 # **3. Definir Constantes y Inicializar el Estado de la Sesión**
-CONTRASEÑA_CORRECTA = "241910"
+CONTRASEÑA_CORRECTA = "091086"
 
 # Inicializar el estado de la sesión
 if 'sesion_iniciada' not in st.session_state:

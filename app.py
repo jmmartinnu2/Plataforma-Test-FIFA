@@ -56,7 +56,7 @@ def rerun_app():
     try:
         st.rerun()
     except AttributeError:
-        st.experimental_rerun()
+        st.rerun()
 
 # **5. Función para Mostrar la Pantalla de Inicio de Sesión en la Barra Lateral**
 def mostrar_login():
